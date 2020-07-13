@@ -1,0 +1,87 @@
+@import 'styles/variables.scss';
+.mcd-button {
+  background-color: transparent;
+
+  border: 1px solid white;
+  border-radius: 5px;
+
+  padding: 14px 35px;
+
+  font-weight: 500;
+  font-size: calc(13px + (16 - 13) * ((100vw - 300px) / (1920 - 300)));
+  text-transform: capitalize;
+
+  transition: 0.5s;
+  letter-spacing: 0;
+  white-space: nowrap;
+
+  text-align: center;
+  vertical-align: middle;
+
+  color: white;
+
+  span {
+    color: inherit !important;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    background-color: white;
+    color: $primaryColor;
+  }
+
+  &-primary {
+    background-color: $primaryColor;
+    background: linear-gradient(90deg, $primaryColor 0%, $darkPrimaryColor 100%);
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+    border: transparent;
+    &:hover {
+      // transition: all 0.4s ease-in-out;
+      background: linear-gradient(90deg, $darkPrimaryColor 0%, $primaryColor 100%);
+      color: white;
+    }
+  }
+
+  &-round {
+    border-radius: 50px;
+  }
+
+  &-outline {
+    border: 1px solid $primaryColor;
+    border-radius: 5px;
+    background: linear-gradient(180deg, $darkPrimaryColor 0%, $primaryColor 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    &:hover {
+      -webkit-background-clip: unset;
+      -webkit-text-fill-color: unset;
+      background: linear-gradient(90deg, $darkPrimaryColor 0%, $primaryColor 100%);
+      color: white;
+    }
+  }
+
+  &-outline.mcd-button-primary {
+    -webkit-background-clip: unset;
+    -webkit-text-fill-color: unset;
+    background: linear-gradient(90deg, $darkPrimaryColor 0%, $primaryColor 100%);
+    color: white;
+    &:hover {
+    }
+  }
+
+  &-compact {
+    padding: 6px 19px;
+  }
+
+  &-disabled {
+    cursor: inherit;
+    background: gray;
+    -webkit-text-fill-color: white;
+    pointer-events: none;
+  }
+}
