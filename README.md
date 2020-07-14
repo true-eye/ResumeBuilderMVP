@@ -1,1 +1,6 @@
-# ID Card Frontend
+# Resume Builder MVP
+
+`
+yarn install
+yarn start
+`

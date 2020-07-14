@@ -258,7 +258,6 @@ module.exports = function(webpackEnv) {
         containers: path.resolve(__dirname, '../src/containers'),
         utils: path.resolve(__dirname, '../src/utils'),
         styles: path.resolve(__dirname, '../src/styles'),
-        resource: path.resolve(__dirname, '../src/resource'),
         'react-native': 'react-native-web',
       },
       plugins: [
