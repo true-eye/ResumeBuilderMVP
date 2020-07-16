@@ -1,0 +1,142 @@
+root: true
+
+env:
+  es6: true
+  node: true
+  mocha: true
+  browser: true
+
+globals:
+  serviceworker: true
+  describe: true
+  browser: true
+  fetch: true
+  it: true
+  expect: true
+  document: true
+
+parserOptions:
+  ecmaVersion: 2020
+  ecmaFeatures:
+    jsx: true
+    generators: true
+    impliedStrict: false
+    legacyDecorators: true
+    experimentalDecorators: true
+    experimentalObjectRestSpread: true
+
+settings:
+  react:
+    version: detect
+
+parser: babel-eslint
+
+plugins:
+  - fp
+  - babel
+  - react
+  - react-hooks
+  - jsx-a11y
+
+extends:
+  - plugin:jsx-a11y/recommended
+  - plugin:react/recommended
+  - eslint:recommended
+  - react-app
+  - prettier
+  - prettier/react
+
+rules:
+  accessor-pairs: 'off'
+  capitalized-comments: 'off'
+  consistent-return: warn
+  no-bitwise: warn
+  no-useless-concat: warn
+  camelcase: error
+  callback-return: error
+  dot-notation: error
+  eqeqeq:
+    - error
+    - allow-null
+  global-require: error
+  handle-callback-err: error
+  no-var: error
+  no-debugger: error
+  no-console:
+    - warn
+    - allow:
+        - info
+        - warn
+        - error
+  no-inner-declarations:
+    - error
+    - functions
+  no-restricted-syntax:
+    - error
+    - WithStatement
+  no-shadow:
+    - error
+    - hoist: never
+  no-unused-expressions: warn
+  no-param-reassign: warn
+  no-unused-vars:
+    - warn
+    - args: none
+      ignoreRestSiblings: true
+  no-duplicate-imports: error
+  no-use-before-define:
+    - error
+    - functions: false
+      variables: false
+  no-new-require: error
+  no-mixed-requires: error
+  no-octal: error
+  no-octal-escape: error
+  prefer-const: warn
+  strict:
+    - warn
+    - global
+  valid-typeof:
+    - error
+    - requireStringLiterals: true
+  max-lines:
+    - warn
+    - 300
+  max-lines-per-function:
+    - warn
+    - max: 200
+      skipComments: true
+      skipBlankLines: true
+  complexity:
+    - warn
+    - 20
+  max-nested-callbacks:
+    - error
+    - 3
+  max-depth:
+    - error
+    - 3
+
+  ## REACT RULES
+  react/display-name: 'off'
+  react/jsx-filename-extension: 'off'
+  react/prop-types: warn
+  react/no-array-index-key: warn
+  react/jsx-uses-vars: error
+  react/jsx-uses-react: error
+  react/prefer-es6-class: warn
+  react/prefer-stateless-function: warn
+
+  ## REACT HOOKS RULES
+  react-hooks/rules-of-hooks: error
+  react-hooks/exhaustive-deps: warn
+
+  ## FUNCTIONAL PROGRAMMING RULES
+  fp/no-let: warn
+  fp/no-delete: error
+  fp/no-get-set: error
+  fp/no-arguments: error
+  fp/no-mutating-assign: warn
+  fp/no-mutating-methods: 'off'
+  fp/no-valueof-field: error
+  fp/no-throw: warn

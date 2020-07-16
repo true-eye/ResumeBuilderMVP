@@ -1,0 +1,180 @@
+@import './variables.scss';
+
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/assets/fonts/HKGrotesk-Bold.eot'); /* IE9 Compat Modes */
+  src: local('HK Grotesk'),
+    url('/assets/fonts/HKGrotesk-Bold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/assets/fonts/HKGrotesk-Bold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-Bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style: italic;
+  font-weight: bold;
+  src: url('/assets/fonts/HKGrotesk-BoldItalic.eot'); /* IE9 Compat Modes */
+  src: local('HK Grotesk'),
+    url('/assets/fonts/HKGrotesk-BoldItalic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/assets/fonts/HKGrotesk-BoldItalic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-BoldItalic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style: italic;
+  font-weight: normal;
+  src: url('/assets/fonts/HKGrotesk-Italic.eot'); /* IE9 Compat Modes */
+  src: local('HK Grotesk'),
+    url('/assets/fonts/HKGrotesk-Italic.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/assets/fonts/HKGrotesk-Italic.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-Italic.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 300;
+  src: url('/assets/fonts/HKGrotesk-Light.eot'); /* IE9 Compat Modes */
+  src: local('HK Grotesk'),
+    url('/assets/fonts/HKGrotesk-Light.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/assets/fonts/HKGrotesk-Light.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/HKGrotesk-Regular.eot'); /* IE9 Compat Modes */
+  src: local('HK Grotesk'),
+    url('/assets/fonts/HKGrotesk-Regular.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/assets/fonts/HKGrotesk-Regular.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  src: url('/assets/fonts/HKGrotesk-SemiBold.eot'); /* IE9 Compat Modes */
+  src: local('HK Grotesk'),
+    url('/assets/fonts/HKGrotesk-SemiBold.eot?#iefix') format('embedded-opentype'),
+    /* IE6-IE8 */ url('/assets/fonts/HKGrotesk-SemiBold.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-SemiBold.woff') format('woff');
+}
+
+@import '~bootstrap/scss/bootstrap.scss';
+
+* {
+  transition: color 0.2s, background-color 0.25s, border-color 0.5s, opacity 0.25s;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+html {
+  height: 100%;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  line-height: inherit;
+  font-family: HK Grotesk, sans-serif;
+  font-weight: 400;
+  color: #58585f;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+#root {
+  height: 100%;
+}
+
+.container-body {
+  padding: 0;
+}
+
+.page-wrap {
+  min-height: 100%;
+  margin-bottom: -137px;
+}
+
+/* Form Style START */
+
+/* Form Style END */

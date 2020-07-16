@@ -1,0 +1,11 @@
+__tests__/
+build/
+deploy/
+docker/
+node_modules/
+public/
+patches/
+docker-compose.yml
+Dockerfile
+LICENSE
+Makefile

@@ -1,0 +1,133 @@
+.header {
+  .navbar {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px 0 15px;
+    background: #fff;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.16);
+
+    .container {
+      padding: 0;
+    }
+
+    .navbar-brand {
+      background: url(/assets/images/logo.svg) no-repeat left center;
+      width: 75px;
+      height: 31px;
+      float: left;
+      background-size: 100% 100%;
+    }
+
+    .header-components-wrap {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-direction: row-reverse;
+      flex-direction: row-reverse;
+
+      .nav {
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+      }
+
+      .progress-section {
+        font-weight: 600;
+        font-size: 1rem;
+        float: left;
+        margin: 8px 0 0;
+
+        .step {
+          color: #d5dae1;
+          cursor: default;
+          pointer-events: none;
+          counter-increment: item;
+
+          .step-text {
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+          }
+
+          &:before {
+            content: counter(item);
+            border: 2px solid #d5dae1;
+            background: #fff;
+            border-radius: 50%;
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 6px;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            line-height: 1.1;
+          }
+          &:after {
+            background: #d5dae1;
+            width: 15px;
+            height: 2px;
+            display: inline-block;
+            content: '';
+            margin: 0 9px;
+            vertical-align: middle;
+          }
+        }
+        .step.active {
+          cursor: default !important;
+          pointer-events: none !important;
+
+          .step-text {
+            color: #46464e;
+          }
+          &:before {
+            color: #15ac31 !important;
+            background: #fff !important;
+            border: 2px solid #15ac31;
+          }
+          &:after {
+            background: #d5dae1;
+            width: 15px;
+            height: 2px;
+            display: inline-block;
+            content: '';
+            margin: 0 9px;
+            vertical-align: middle;
+          }
+        }
+        .step.step-completed {
+          cursor: pointer;
+          pointer-events: auto;
+
+          .step-text {
+            color: #46464e;
+          }
+          &:before {
+            color: #fff;
+            background: #15ac31;
+            border: 2px solid #15ac31;
+          }
+          &:after {
+            background: #15ac31;
+          }
+        }
+        .step:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

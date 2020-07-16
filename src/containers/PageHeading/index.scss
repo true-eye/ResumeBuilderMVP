@@ -1,0 +1,36 @@
+@import 'styles/variables.scss';
+
+.section-cntc {
+  .page-title-wrap {
+    padding: 4vh 0;
+    .page-title {
+      font-size: 25px;
+      color: $defaultColor;
+      line-height: 1.5;
+      margin-bottom: 5px;
+      font-weight: 300;
+    }
+    .sub-title {
+      color: #666;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 400;
+      margin-bottom: 5px;
+    }
+  }
+
+  .row-full-name {
+    margin-top: 0 !important;
+    .col-first-name {
+      padding-right: 5px !important;
+    }
+  }
+
+  .col {
+    padding: 0;
+  }
+
+  @media (min-width: 992px) {
+    max-width: 960px !important;
+  }
+}

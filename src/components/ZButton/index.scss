@@ -1,0 +1,75 @@
+@import 'styles/variables.scss';
+.z-btn {
+  display: inline-block;
+  font-family: 'HK Grotesk', sans-serif;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 1px solid transparent;
+  min-width: 100px;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 0 20px;
+  font-size: 13px;
+  line-height: 43px;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  span {
+    color: inherit !important;
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &-default {
+    color: $defaultColor;
+    background-color: $white;
+    border-color: $defaultColor;
+    &:hover,
+    &:focus,
+    &:active {
+      color: $defaultColor;
+      background-color: #d7dde2;
+      border-color: $defaultColor;
+      outline: none;
+    }
+  }
+
+  &-primary {
+    font-weight: bold;
+    color: $white;
+    background-color: $primaryColor;
+    border-color: $primaryColor;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.19);
+    padding: 0 40px;
+
+    &:hover,
+    &:focus,
+    &:active {
+      color: $white;
+      background-color: $darkPrimaryColor;
+      border-color: $darkPrimaryColor;
+      outline: none;
+    }
+  }
+
+  &-disabled {
+    cursor: inherit;
+    background: gray;
+    -webkit-text-fill-color: $white;
+    pointer-events: none;
+  }
+}

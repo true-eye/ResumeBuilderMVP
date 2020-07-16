@@ -1,0 +1,58 @@
+.mcd-404 {
+  background: linear-gradient(#9647db, #5e57ea);
+  height: 100vh;
+  overflow: hidden;
+
+  .stars {
+    background-image: url(/assets/images/overlay_stars.svg);
+    background-repeat: repeat;
+    background-size: contain;
+    background-position: left top;
+    height: 100vh;
+  }
+
+  .center-body {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100vh;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+
+    color: white;
+    h1 {
+      font-size: calc(100px + (250 - 100) * ((100vw - 300px) / (1920 - 300)));
+      font-weight: 700;
+      margin-top: -52px;
+      line-height: 1;
+      font-family: 'Capriola', sans-serif;
+      color: white;
+    }
+    h3 {
+      margin-top: 30px;
+      text-transform: capitalize;
+      margin-bottom: 10px;
+      font-size: calc(18px + (26 - 18) * ((100vw - 300px) / (1920 - 300)));
+      color: white;
+    }
+    p {
+      font-size: 15px;
+      letter-spacing: 1px;
+      margin: 10px 50px;
+      font-weight: 300;
+      line-height: 1.8;
+      text-align: center;
+    }
+    button {
+      margin-top: 20px;
+    }
+  }
+}
