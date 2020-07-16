@@ -7,9 +7,10 @@ import * as yup from 'yup'
 import './index.scss'
 
 const schema = yup.object({
-  FNAM: yup.string().required('This field is required'),
-  LNAM: yup.string().required('This field is required'),
-  DCTL: yup.string(),
+  EMAI: yup
+    .string()
+    .email('Please use correct format for email address')
+    .required('Please enter your email address.'),
 })
 
 const PageHeading = () => {
@@ -18,6 +19,11 @@ const PageHeading = () => {
       FNAM: '',
       LNAM: '',
       DCTL: '',
+      CITY: '',
+      STAT: '',
+      ZIPC: '',
+      HPHN: '',
+      EMAI: '',
     },
     validationSchema: schema,
     onSubmit: (values, actions) => {
@@ -39,80 +45,92 @@ const PageHeading = () => {
         <Col md={7} lg={8}>
           <Form noValidate>
             <Row className='row-full-name'>
-              <Col className='col-first-name'>
+              <Col xs={6} className='col-first-name'>
                 <ZInput
                   formik={formik}
                   id='textFNAM'
                   name='FNAM'
-                  maxLength='35'
+                  maxLength={35}
                   label='First Name'
                   placeholder='e.g. John'
                 />
               </Col>
-              <Col>
-                <Form.Group className='col-last-name'>
-                  <Form.Label>Last name</Form.Label>
-                  <Form.Control type='text' placeholder='e.g. Smith' maxLength={35} id='textLNAM' />
-                </Form.Group>
-              </Col>
-            </Row>
-            <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Label>Profession</Form.Label>
-                <Form.Control
-                  type='text'
-                  placeholder='e.g. Sr. Accountant'
-                  maxLength={100}
-                  id='textDCTL'
+              <Col xs={6} className='col-last-name'>
+                <ZInput
+                  formik={formik}
+                  id='textLNAM'
+                  name='LNAM'
+                  maxLength={35}
+                  label='Last name'
+                  placeholder='e.g. Smith'
                 />
-              </Form.Group>
-            </Form.Row>
-            <Row>
-              <Col>
-                <Form.Group>
-                  <Form.Label>City</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='e.g. San Francisco'
-                    maxLength={100}
-                    id='city'
-                  />
-                </Form.Group>
-              </Col>
-              <Col xl={3}>
-                <Form.Group>
-                  <Form.Label>State/Province</Form.Label>
-                  <Form.Control
-                    type='text'
-                    placeholder='e.g. California or CA'
-                    maxLength={50}
-                    id='state'
-                  />
-                </Form.Group>
-              </Col>
-              <Col xl={3}>
-                <Form.Group>
-                  <Form.Label>Zip Code</Form.Label>
-                  <Form.Control type='text' placeholder='e.g. 94102' maxLength={10} id='zip' />
-                </Form.Group>
               </Col>
             </Row>
-            <Form.Row>
-              <Form.Group as={Col}>
-                <Form.Label>Phone</Form.Label>
-                <Form.Control
+            <Row className='row-profession'>
+              <Col className='col-profession'>
+                <ZInput
+                  formik={formik}
+                  id='textDCTL'
+                  name='DCTL'
+                  label='Profession'
+                  placeholder='e.g. Sr. Accountant'
+                />
+              </Col>
+            </Row>
+
+            <Row className='row-city-state-zip'>
+              <Col xs={6} className='col-city'>
+                <ZInput
+                  formik={formik}
+                  id='city'
+                  name='CITY'
+                  label='City'
+                  placeholder='e.g. San Francisco'
+                />
+              </Col>
+              <Col xl={3} className='col-state'>
+                <ZInput
+                  formik={formik}
+                  id='state'
+                  name='STAT'
+                  label='State/Province'
+                  placeholder='e.g. California or CA'
+                />
+              </Col>
+              <Col xl={3} className='col-zip'>
+                <ZInput
+                  formik={formik}
+                  id='zip'
+                  name='ZIPC'
+                  label='Zip Code'
+                  placeholder='e.g. 94102'
+                />
+              </Col>
+            </Row>
+            <Row className='row-phone-email'>
+              <Col xs={6} className='col-phone'>
+                <ZInput
+                  formik={formik}
+                  id='textFNAM'
+                  name='HPHN'
+                  label='Phone'
+                  maxLength={16}
                   type='number'
                   placeholder='e.g. 415-555-5555'
-                  maxLength={16}
-                  id='textFNAM'
                 />
-              </Form.Group>
-
-              <Form.Group as={Col}>
-                <Form.Label>Email</Form.Label>
-                <Form.Control type='email' placeholder='e.g. Smith' maxLength={35} id='textLNAM' />
-              </Form.Group>
-            </Form.Row>
+              </Col>
+              <Col xs={6} className='col-email'>
+                <ZInput
+                  formik={formik}
+                  id='EMAI'
+                  name='EMAI'
+                  label='Email Address'
+                  maxLength={35}
+                  type='email'
+                  placeholder='e.g. Smith'
+                />
+              </Col>
+            </Row>
           </Form>
         </Col>
         <Col md={5} lg={4} className='resume-thumbnail'>

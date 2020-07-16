@@ -36,13 +36,12 @@ const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, ty
         onChange={formik.handleChange}
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
-        isInvalid={formik.touched[name] && formik.errors[name]}
       />
       {!isFocused ? (
         isInvalid ? (
           <FontAwesomeIcon icon={faTimes} color='#d0021b' />
         ) : (
-          <FontAwesomeIcon icon={faCheck} color='#15ac31' />
+          isFilled && <FontAwesomeIcon icon={faCheck} color='#15ac31' />
         )
       ) : (
         ''

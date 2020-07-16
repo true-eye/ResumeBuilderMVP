@@ -1,6 +1,7 @@
 @import 'styles/variables.scss';
 
 .section-cntc {
+  padding: 0 !important;
   .page-title-wrap {
     padding: 4vh 0;
     .page-title {
@@ -24,10 +25,40 @@
     .col-first-name {
       padding-right: 5px !important;
     }
+    .col-last-name {
+      padding-left: 5px !important;
+      padding-right: 0px !important;
+    }
   }
 
-  .col {
-    padding: 0;
+  .row-profession {
+    .col-profession {
+      padding-right: 0px !important;
+    }
+  }
+
+  .row-city-state-zip {
+    .col-state {
+      padding-left: 5px !important;
+      padding-right: 0px !important;
+    }
+    .col-city {
+      padding-right: 5px !important;
+    }
+    .col-zip {
+      padding-left: 10px !important;
+      padding-right: 0px !important;
+    }
+  }
+
+  .row-phone-email {
+    .col-phone {
+      padding-right: 5px !important;
+    }
+    .col-email {
+      padding-left: 5px !important;
+      padding-right: 0px !important;
+    }
   }
 
   @media (min-width: 992px) {
