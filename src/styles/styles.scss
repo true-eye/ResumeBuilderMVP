@@ -66,6 +66,34 @@
     /* Super Modern Browsers */ url('/assets/fonts/HKGrotesk-SemiBold.woff') format('woff');
 }
 
+/*Font support for MAC*/
+@font-face {
+  font-family: 'Century Gothic';
+  font-weight: normal;
+  font-style: normal;
+  src: local('Century Gothic'), url('/assets/fonts/CenturyGothic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Century Gothic';
+  font-weight: bold;
+  font-style: normal;
+  src: local('Century Gothic Bold'), url('/assets/fonts/CenturyGothicBold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Century Gothic';
+  font-weight: bold;
+  font-style: italic;
+  src: local('Century Gothic Bold Italic'),
+    url('/assets/fonts/CenturyGothicBoldItalic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Century Gothic';
+  font-weight: normal;
+  font-style: italic;
+  src: local('Century Gothic Italic'),
+    url('/assets/fonts/CenturyGothicItalic.ttf') format('truetype');
+}
+
 @import '~bootstrap/scss/bootstrap.scss';
 
 * {

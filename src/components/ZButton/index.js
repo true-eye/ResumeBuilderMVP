@@ -5,8 +5,15 @@ import { Spinner } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import './index.scss'
 
-const ZButton = ({ children, variant = 'default', onClick, loading = false, disabled = false }) => {
-  const btnClass = classnames('z-btn', `z-btn-${variant}`, {
+const ZButton = ({
+  children,
+  className,
+  variant = 'default',
+  onClick,
+  loading = false,
+  disabled = false,
+}) => {
+  const btnClass = classnames('z-btn', `z-btn-${variant}`, className, {
     'z-btn-disabled': disabled || loading,
   })
 
@@ -30,11 +37,12 @@ const ZButton = ({ children, variant = 'default', onClick, loading = false, disa
 }
 
 ZButton.propTypes = {
-  children: PropTypes.string,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   variant: PropTypes.string,
   onClick: PropTypes.func,
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
+  className: PropTypes.string,
 }
 
 export default ZButton

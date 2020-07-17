@@ -1,0 +1,305 @@
+body {
+  text-align: left;
+  font-feature-settings: 'liga' 0;
+  -moz-font-feature-settings: 'liga' off;
+}
+#document.skn-srz1 ol,
+#document.skn-srz1 ul {
+  list-style: none;
+}
+#document.skn-srz1 table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: inherit;
+  color: inherit;
+  width: 100%;
+}
+
+/*START content disc style for LI*/
+#document.skn-srz1 ul,
+#document.skn-srz1 li {
+  margin: 0;
+  padding: 0;
+  list-style-type: disc;
+}
+#document.skn-srz1 ul li {
+  margin: 0 0 0 16px;
+  padding: 0;
+}
+@-moz-document url-prefix() {
+  #document.skn-srz1 ul li {
+    margin: 0 0 0 12px;
+    padding: 0 0 0 3px;
+  }
+}
+/*END content disc style for LI*/
+
+/*common css*/
+#document.skn-srz1 .txtBold {
+  font-weight: 700;
+}
+#document.skn-srz1 .paddedline {
+  display: block;
+}
+#document.skn-srz1 .mt5 {
+  margin-top: 5px;
+}
+#document.skn-srz1 .txtRight {
+  text-align: right;
+}
+
+#document.skn-srz1 table.skills,
+#document.skn-srz1 .table_wrapper {
+  margin-top: 0;
+  width: 100%;
+  word-break: break-all;
+}
+#document.skn-srz1 table.skills th,
+#document.skn-srz1 table.skills td {
+  text-align: center;
+  width: 20%;
+}
+#document.skn-srz1 table.skills .skillname,
+#document.skn-srz1 table.skills .skillrating {
+  text-align: left;
+  width: 35%;
+}
+#document.skn-srz1 table.skills .skillrating {
+  width: 20%;
+}
+#document.skn-srz1 table.skills .skillyears,
+#document.skn-srz1 table.skills .skilllast {
+  width: 19%;
+}
+#document.skn-srz1 table.skills .pad1 {
+  width: 5%;
+}
+#document.skn-srz1 table.skills .pad2,
+#document.skn-srz1 table.skills .pad3 {
+  width: 1%;
+}
+#document.skn-srz1 {
+  color: #343434;
+  font-variant-ligatures: none;
+  line-height: 16px;
+  min-height: 792px;
+  box-sizing: border-box;
+}
+#document.skn-srz1 .name {
+  font-weight: 700;
+  padding: 0;
+  position: relative;
+  text-align: left;
+  word-wrap: break-word;
+}
+#document.skn-srz1 .address .singlecolumn {
+  margin-left: 0 !important;
+}
+#document.skn-srz1 .heading {
+  font-weight: 700;
+  line-height: 15px;
+  margin-bottom: 10px;
+}
+#document.skn-srz1 .sectiontitle {
+  word-break: break-word;
+}
+#document.skn-srz1 .degreeGap {
+  margin-bottom: 4px;
+}
+#document.skn-srz1 .locationGap {
+  margin-top: 4px;
+}
+#document.skn-srz1 .firstsection {
+  padding-top: 0 !important;
+}
+#document.skn-srz1 .section:empty {
+  display: none;
+}
+
+/*Left Box */
+#document.skn-srz1 .left-box {
+  background: #003d73;
+  display: table-cell;
+  padding: 15px;
+  box-sizing: initial;
+}
+#document.skn-srz1 .left-box .section {
+  position: relative;
+  color: #fff;
+}
+#document.skn-srz1 .left-box .heading {
+  line-height: 1.5;
+  margin-left: -15px;
+  margin-right: -15px;
+  padding: 0 15px;
+  position: relative;
+}
+#document.skn-srz1 .left-box .heading:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #003d73;
+  height: 100%;
+  width: 100%;
+  filter: brightness(0.8);
+}
+#document.skn-srz1 .left-box .sectiontitle {
+  padding: 3px 0;
+  text-align: left;
+  position: relative;
+}
+#document.skn-srz1 .left-box .SECTION_CNTC {
+  padding-top: 20px !important;
+}
+#document.skn-srz1 .parentContainer {
+  border-collapse: collapse;
+  display: table;
+  min-height: inherit;
+  table-layout: fixed;
+  width: 100%;
+}
+
+/*Right Box */
+#document.skn-srz1 .right-box {
+  display: table-cell;
+  letter-spacing: 0.2px;
+  padding: 15px;
+  vertical-align: top;
+}
+#document.skn-srz1 .right-box .section:first-child {
+  padding-top: 0;
+}
+#document.skn-srz1 .right-box .heading {
+  border-bottom: 1px solid #d5d6d6;
+  border-top: 1px solid #d5d6d6;
+  letter-spacing: 0;
+  padding: 5px 0;
+}
+#document.skn-srz1 .right-box .sectiontitle {
+  color: #002e58;
+}
+#document.skn-srz1 .right-box .paddedline.date-content {
+  position: absolute;
+  margin-left: 0;
+  width: 65px;
+
+  left: -91px;
+}
+#document.skn-srz1 .paragraph .singlecolumn {
+  position: relative;
+}
+#document.skn-srz1 .right-box .summary .paragraph .singlecolumn {
+  margin-left: 0;
+}
+#document.skn-srz1 .education .joblocation,
+.txtItl {
+  font-style: italic;
+}
+
+/* Issues fix for builder page */
+#document.skn-srz1 > div {
+  min-height: inherit;
+}
+#displayResume #document.skn-srz1.document {
+  min-height: 792px;
+}
+#document.skn-srz1 .left-box .active * {
+  color: #343434;
+}
+/* Only for firefox */
+@-moz-document url-prefix() {
+  #document.skn-srz1 .parentContainer {
+    height: 1px;
+  }
+}
+#document.skn-srz1 .word-break {
+  word-wrap: break-word;
+}
+
+#document.skn-srz1 .left-box .outer-square,
+#document.skn-srz1 right-box .outer-square,
+#document.skn-srz1 .left-box .inner-square,
+#document.skn-srz1 .right-box .inner-square {
+  height: 7px;
+  position: relative;
+}
+#document.skn-srz1 .left-box .inner-square {
+  background: #fff;
+}
+
+#document.skn-srz1 .right-box .outer-square {
+  background: #d6d6d6;
+}
+#document.skn-srz1 .right-box .inner-square {
+  background: #003d73;
+  filter: brightness(0.8);
+}
+
+/* For dates fix */
+#document.skn-srz1 .right-box .hidedates {
+  visibility: hidden;
+  position: static !important;
+  display: block;
+  float: left;
+}
+#document.skn-srz1 .left-box .hidedates {
+  display: none;
+}
+#document.skn-srz1 .paragraph.datespara:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#document.skn-srz1,
+#document.skn-srz1 table {
+  line-height: 18px;
+}
+#document.skn-srz1.pagesize {
+  width: 612px;
+}
+#document.skn-srz1.fontface {
+  font-family: Century Gothic;
+}
+#document.skn-srz1.fontsize {
+  font-size: 11px;
+}
+#document.skn-srz1 .section {
+  padding-top: 20px;
+}
+#document.skn-srz1 .firstparagraph {
+  margin-top: 0 !important;
+}
+#document.skn-srz1 .paragraph {
+  margin-top: 10px;
+}
+#document.skn-srz1 .singlecolumn,
+#document.skn-srz1 .maincolumn {
+  word-wrap: break-word;
+}
+#document.skn-srz1 .right-box .singlecolumn,
+#document.skn-srz1 .right-box .maincolumn {
+  margin-left: 91px;
+}
+#document.skn-srz1 table.skills td {
+  padding-top: 5px;
+}
+#document.skn-srz1 .jobtitle,
+#document.skn-srz1 .degree,
+#document.skn-srz1 .programline {
+  font-size: 14px;
+}
+#document.skn-srz1 .name {
+  font-size: 28px;
+  line-height: 35px;
+}
+#document.skn-srz1 .heading {
+  line-height: 22px;
+}
+#document.skn-srz1 .sectiontitle {
+  font-size: 16px;
+}
+#document.skn-srz1 .resumeTitle {
+  font-size: 14px;
+  padding-top: 3px;
+}
