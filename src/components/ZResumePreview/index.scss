@@ -122,6 +122,9 @@ body {
   display: table-cell;
   padding: 15px;
   box-sizing: initial;
+
+  background: #003d73;
+  width: 154px;
 }
 #document.skn-srz1 .left-box .section {
   position: relative;
@@ -255,9 +258,7 @@ body {
 #document.skn-srz1 table {
   line-height: 18px;
 }
-#document.skn-srz1.pagesize {
-  width: 612px;
-}
+
 #document.skn-srz1.fontface {
   font-family: Century Gothic;
 }
@@ -302,4 +303,7 @@ body {
 #document.skn-srz1 .resumeTitle {
   font-size: 14px;
   padding-top: 3px;
+}
+#document.skn-srz1 .right-box .sortable-item {
+  padding-top: 20px;
 }

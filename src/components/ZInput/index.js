@@ -35,7 +35,10 @@ const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, ty
         value={formik.values[name]}
         onChange={formik.handleChange}
         onFocus={() => setIsFocused(true)}
-        onBlur={() => setIsFocused(false)}
+        onBlur={e => {
+          setIsFocused(false)
+          formik.handleBlur(e)
+        }}
       />
       {!isFocused ? (
         isInvalid ? (

@@ -47,7 +47,7 @@ const PageHeading = () => {
           <ContactForm formik={formik} />
         </Col>
         <Col md={5} lg={4} className='resume-thumbnail'>
-          <ResumeThumbnail />
+          <ResumeThumbnail data={{ cntc: formik.values }} />
         </Col>
       </Row>
       <ZButtonGroupFooter>

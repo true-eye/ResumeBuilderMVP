@@ -17,12 +17,13 @@
       -webkit-transform-origin: top left;
       transform-origin: top left;
 
-      .left-box {
-        background: #003d73;
-        width: 154px;
-      }
+      width: 612px;
+    }
+    &:hover {
+      border-color: #3591cf;
     }
   }
+
   .btn-preview-ctnr {
     text-align: center;
     margin: 15px 0 0 auto;
@@ -50,6 +51,20 @@
 
       &:hover {
         border-color: #3591cf;
+      }
+    }
+  }
+}
+
+.modal-preview-resume {
+  .modal-header {
+    position: absolute;
+    right: 0;
+    border: none;
+    button {
+      padding: 0.5rem 1rem;
+      span {
+        font-size: 3rem;
       }
     }
   }

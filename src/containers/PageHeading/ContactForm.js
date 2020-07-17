@@ -71,7 +71,6 @@ const ContactForm = ({ formik }) => {
             name='HPHN'
             label='Phone'
             maxLength={16}
-            type='number'
             placeholder='e.g. 415-555-5555'
           />
         </Col>
