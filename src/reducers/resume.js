@@ -1,16 +1,45 @@
-import { EXAMPLE } from 'actions/types'
+import { RESUME } from 'actions/types'
 
 const initialState = {
-  loading: false,
-  completedUntil: -1,
+  completed: {
+    cntc: false,
+    expr: false,
+    educ: false,
+    hilt: false,
+    summ: false,
+    fnlz: false,
+  },
+  info: {
+    cntc: {
+      FNAM: '',
+      LNAM: '',
+      DCTL: '',
+      CITY: '',
+      STAT: '',
+      ZIPC: '',
+      HPHN: '',
+      EMAI: '',
+    },
+  },
 }
 
 function resumeReducer(state = initialState, action) {
   switch (action.type) {
-    case EXAMPLE.GET_REQUEST:
+    case RESUME.SAVE_STEP:
       return {
         ...state,
-        loading: true,
+        info: {
+          [action.field]: {
+            ...action.value,
+          },
+        },
+      }
+    case RESUME.COMPLETE_STEP:
+      return {
+        ...state,
+        completed: {
+          [action.field]: true,
+        },
       }
     default: {
       return state

@@ -1,9 +1,7 @@
 import { createActionTypes } from 'utils'
 
-export const EXAMPLE = createActionTypes('EXAMPLE', [
-  'GET_REQUEST',
-])
+export const RESUME = createActionTypes('RESUME', ['SAVE_STEP', 'COMPLETE_STEP'])
 
 export default {
-  EXAMPLE,
+  RESUME,
 }

@@ -8,6 +8,18 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import './index.scss'
 
+/**
+ * @component
+ * @param {object}    data
+ * @param {className} string
+ * @param {string}    highlight
+ *
+ * 1. resume preview with zoom in
+ * 2. resume preview modal with zoom out
+ *
+ * @version 0.0.1
+ */
+
 const ResumeThumbnail = ({ data, className, highlight }) => {
   const [showPopup, setShowPopup] = useState(false)
 

@@ -1,6 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+/**
+ * @component
+ * @param {string}    CITY
+ * @param {string}    STAT
+ * @param {string}    ZIPC
+ * @param {string}    HPHN
+ * @param {string}    EMAI
+ *
+ * In case of all fields are empty, it shows the placeholder ones
+ *
+ * @version 0.0.1
+ */
+
 const SectionContact = ({ CITY = '', STAT = '', ZIPC = '', HPHN = '', EMAI = '' }) => {
   const emptyAddr = !CITY.length && !STAT.length && !ZIPC.length
   const emptyPhone = !HPHN.length

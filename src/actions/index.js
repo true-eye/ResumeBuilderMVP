@@ -1,7 +1,4 @@
-import * as example from './example'
+import * as resume from './resume'
 import * as types from './types'
 
-export {
-  example,
-  types,
-}
+export { resume, types }

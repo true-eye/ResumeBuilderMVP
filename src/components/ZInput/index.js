@@ -5,6 +5,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './index.scss'
 
+/**
+ * @component
+ * @param {string}    id
+ * @param {string}    label
+ * @param {string}    name    (field name of formik form)
+ * @param {object}    formik
+ * @param {string}    placeholder
+ * @param {number}    maxLength
+ * @param {string}    type    (input type: text | number)
+ * @param {string}    className
+ *
+ * @version 0.0.1
+ */
+
 const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, type }) => {
   const [isFocused, setIsFocused] = useState(false)
   const isFilled = formik.values[name] && formik.values[name].length

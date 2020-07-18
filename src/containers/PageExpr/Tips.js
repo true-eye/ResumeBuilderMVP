@@ -1,12 +1,24 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import ResumeThumbnail from 'containers/ResumeThumbnail'
 import { ZButton, ZButtonGroupFooter } from 'components/themes.js'
 import './Tips.scss'
 
+/**
+ * @page
+ * @route /resume/tips/expr
+ *
+ * 1. load resume info from redux
+ * 2. preview resume with highlighting expr part
+ *
+ * @version 0.0.1
+ */
+
 const PageExprTips = () => {
   const history = useHistory()
+  const info = useSelector(state => state.resume.info)
   return (
     <Container className='tips-expr'>
       <Row>
@@ -21,7 +33,7 @@ const PageExprTips = () => {
           </ul>
         </Col>
         <Col md={4}>
-          <ResumeThumbnail className='tips-expr-resume-thumbnail' highlight='expr' />
+          <ResumeThumbnail className='tips-expr-resume-thumbnail' highlight='expr' data={info} />
         </Col>
       </Row>
       <ZButtonGroupFooter>

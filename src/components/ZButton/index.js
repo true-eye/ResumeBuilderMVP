@@ -5,6 +5,17 @@ import { Spinner } from 'react-bootstrap'
 import PropTypes from 'prop-types'
 import './index.scss'
 
+/**
+ * @component
+ * @param {children}    ReactElement
+ * @param {string}      variant (primary | default)
+ * @param {bool}        loading
+ * @param {bool}        disabled
+ * @param {string}      className
+ *
+ * @version 0.0.1
+ */
+
 const ZButton = ({
   children,
   className,

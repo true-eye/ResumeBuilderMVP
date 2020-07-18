@@ -2,6 +2,15 @@ import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap'
 import ResumeThumbnail from 'containers/ResumeThumbnail'
 
+/**
+ * @page
+ * @route /resume/section/expr
+ *
+ * 1. load resume info from redux
+ *
+ * @version 0.0.1
+ */
+
 const PageExprSection = () => {
   return (
     <Container className='tips-expr'>

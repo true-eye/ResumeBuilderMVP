@@ -3,7 +3,7 @@ import { types } from 'actions'
 import { ApiManager } from 'apis/apimanager'
 import _ from 'lodash'
 
-const { EXAMPLE } = types
+const { RESUME } = types
 
 function* getRequest(action) {
   try {
@@ -16,8 +16,8 @@ function* getRequest(action) {
   }
 }
 
-function* exampleSagas() {
-  yield all([takeLatest(EXAMPLE.GET_REQUEST, getRequest)])
+function* resumeSagas() {
+  yield all([takeLatest(RESUME.GET_REQUEST, getRequest)])
 }
 
-export default exampleSagas
+export default resumeSagas

@@ -4,6 +4,14 @@ import LeftBox from './LeftBox'
 import RightBox from './RightBox'
 import './index.scss'
 
+/**
+ * @component
+ * @param {object}    data        (resume info)
+ * @param {string}    highlight   (highlighted setion name: expr | )
+ *
+ * @version 0.0.1
+ */
+
 const ZResumePreview = ({ data = {}, highlight }) => {
   return (
     <div

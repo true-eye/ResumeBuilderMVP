@@ -1,6 +1,12 @@
 import React from 'react'
 import './index.scss'
 
+/**
+ * @footer
+ *
+ * @version 0.0.1
+ */
+
 const Footer = () => (
   <footer className='footer'>
     <section className='footer-top'>

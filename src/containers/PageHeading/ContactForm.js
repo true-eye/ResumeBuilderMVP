@@ -3,6 +3,13 @@ import PropTypes from 'prop-types'
 import { Row, Col, Form } from 'react-bootstrap'
 import { ZInput } from 'components/themes.js'
 
+/**
+ * @form
+ * @route /resume/section/cntc
+ * @params {object} formik
+ * @version 0.0.1
+ */
+
 const ContactForm = ({ formik }) => {
   return (
     <Form noValidate>
