@@ -20,6 +20,7 @@ const initialState = {
       HPHN: '',
       EMAI: '',
     },
+    expr: [],
   },
 }
 

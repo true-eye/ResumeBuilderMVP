@@ -204,10 +204,39 @@ body {
   height: auto;
 }
 
+/* common page title style START */
+
+.page-title-wrap {
+  padding: 4vh 0;
+}
+
 .page-title {
   font-size: 25px;
   color: $defaultColor;
   line-height: 1.5;
   margin-bottom: 5px;
   font-weight: 300;
+}
+
+.sub-title {
+  color: #666;
+  font-size: 18px;
+  line-height: 1.25;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+
+/* common page title style END */
+
+@media (min-width: 992px) {
+  .container {
+    width: 960px;
+  }
+}
+@media (min-width: 1200px) {
+  .navbar {
+    .container {
+      width: 1140px;
+    }
+  }
 }

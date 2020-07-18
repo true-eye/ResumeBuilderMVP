@@ -1,36 +1,35 @@
-import React from 'react'
-import { Container, Row, Col } from 'react-bootstrap'
-import ResumeThumbnail from 'containers/ResumeThumbnail'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+import { AddEditPage } from './Subpages'
+import './Section.scss'
 
 /**
  * @page
  * @route /resume/section/expr
  *
  * 1. load resume info from redux
+ * 2. serve subpages
  *
  * @version 0.0.1
  */
 
+const Pages = {
+  AddJob: 'AddJob',
+  EditJob: 'EditJob',
+  WhatDidYouDo: 'WhatDidYouDo',
+  Summary: 'AboutYourJob',
+}
+
 const PageExprSection = () => {
-  return (
-    <Container className='tips-expr'>
-      <Row>
-        <Col md={8} className='col-body-left'>
-          <h1 className='page-title'>
-            Now, let’s fill out your <span className='font-weight-normal'>work history</span>
-          </h1>
-          <ul className='tips'>
-            <li>Here’s what you need to know:</li>
-            <li>Employers scan your resume for six seconds to decide if you’re a match.</li>
-            <li>We’ll suggest bullet points that make a great impression.</li>
-          </ul>
-        </Col>
-        <Col md={4}>
-          <ResumeThumbnail />
-        </Col>
-      </Row>
-    </Container>
-  )
+  const [page, setPage] = useState(Pages.AddJob)
+  const history = useHistory()
+  const dispatch = useDispatch()
+  const info = useSelector(state => state.resume.info)
+
+  if (page === Pages.AddJob) {
+    return <AddEditPage />
+  }
 }
 
 export default PageExprSection
