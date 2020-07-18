@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'react-bootstrap'
 import { ZButton, ZButtonGroupFooter } from 'components/themes.js'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
+import TipContainer from 'containers/TipContainer'
 import AboutJobForm from './AboutJobForm'
 import './AddEditPage.scss'
 
@@ -15,10 +16,14 @@ import './AddEditPage.scss'
  */
 
 const schema = yup.object({
-  // EMAI: yup
-  //   .string()
-  //   .email('Please use correct format for email address')
-  //   .required('Please enter your email address.'),
+  startDate: yup.date(),
+  endDate: yup
+    .date()
+    .when(
+      'startDate',
+      (startDate, sch) =>
+        startDate && sch.min(startDate, `Your end date can't be before the start date.`),
+    ),
 })
 
 const AddEditPage = () => {
@@ -30,6 +35,7 @@ const AddEditPage = () => {
       jobstate: '',
       startDate: undefined,
       endDate: undefined,
+      currentJob: false,
     },
     validationSchema: schema,
     onSubmit: (values, actions) => {
@@ -49,7 +55,7 @@ const AddEditPage = () => {
           <p className='sub-title'>We’ll put your work history in the right order.</p>
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          Container Tip
+          <TipContainer />
         </Col>
       </Row>
       <AboutJobForm formik={formik} />

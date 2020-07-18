@@ -240,3 +240,51 @@ body {
     }
   }
 }
+
+.react-calendar {
+  background: #fff;
+  border: 1px solid #5eaaf7;
+  font-size: 14px;
+  width: 180px;
+  padding: 5px 8px;
+  margin-top: -4px;
+  position: absolute;
+  z-index: 1;
+  font-family: 'HK Grotesk', sans-serif;
+
+  button {
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    line-height: 25px;
+    outline: none;
+    color: #333;
+  }
+
+  .react-calendar__year-view__months {
+    button {
+      padding: 0 5px;
+      border-radius: 3px;
+      margin: 5px 2px;
+      -ms-flex-preferred-size: calc(25% - 4px) !important;
+      flex-basis: calc(25% - 4px) !important;
+
+      &:hover {
+        background: #5eaaf7;
+        color: #fff;
+        font-weight: 600;
+        transition: none;
+      }
+    }
+  }
+
+  &__navigation {
+    margin-bottom: 0px;
+    height: unset;
+
+    &__label {
+      cursor: default;
+      font-weight: 700;
+    }
+  }
+}

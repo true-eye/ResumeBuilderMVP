@@ -73,4 +73,35 @@
       caret-color: #48a4ff;
     }
   }
+
+  &.has-icon {
+    .form-control {
+      padding-left: 40px;
+    }
+
+    svg {
+      position: absolute;
+      left: 15px;
+      bottom: 12px;
+      pointer-events: none;
+      font-size: 13px;
+      font-weight: 400;
+    }
+
+    .z-input-invalid-icon,
+    .z-input-valid-icon {
+      position: absolute;
+      top: 38px;
+      right: 10px;
+      left: unset;
+      bottom: unset;
+      font-size: 13px;
+      font-weight: 900;
+    }
+  }
+
+  .form-control:disabled {
+    background: #e9ecef !important;
+    cursor: not-allowed !important;
+  }
 }

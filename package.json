@@ -7,8 +7,10 @@
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
+    "@fortawesome/free-regular-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "add": "^2.0.6",
     "antd": "^4.2.0",
     "antd-scss-theme-plugin": "^1.0.8",
     "axios": "^0.18.0",
@@ -29,6 +31,7 @@
     "react": "^16.8.3",
     "react-autosuggest": "^10.0.2",
     "react-bootstrap": "^1.0.0",
+    "react-calendar": "^3.1.0",
     "react-dom": "^16.8.3",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.2.0",

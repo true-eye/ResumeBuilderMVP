@@ -15,11 +15,33 @@ import './index.scss'
  * @param {number}    maxLength
  * @param {string}    type    (input type: text | number)
  * @param {string}    className
+ * @param {function}  onFocus
+ * @param {function}  onBlur
+ * @param {bool}      preventChange
+ * @param {string}    formattedValue
+ * @param {string}    autoComplete
+ * @param {bool}      disabled
  *
  * @version 0.0.1
  */
 
-const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, type }) => {
+const ZInput = ({
+  className,
+  id,
+  label,
+  name,
+  formik,
+  placeholder,
+  maxLength,
+  type,
+  onFocus,
+  onBlur,
+  preventChange = false,
+  formattedValue = null,
+  autoComplete = 'on',
+  icon = null,
+  disabled,
+}) => {
   const [isFocused, setIsFocused] = useState(false)
   const isFilled = formik.values[name] && formik.values[name].length
   const isValid = !formik.errors[name]
@@ -30,6 +52,7 @@ const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, ty
     'is-filled': isFilled,
     'is-valid': isValid,
     'is-invalid': isInvalid,
+    'has-icon': !!icon,
   })
 
   const labelClass = classnames('control-label')
@@ -39,6 +62,7 @@ const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, ty
       <label className={labelClass} htmlFor={id}>
         {label}
       </label>
+      {icon ? icon : ''}
       <input
         id={id}
         name={name}
@@ -46,19 +70,27 @@ const ZInput = ({ className, id, label, name, formik, placeholder, maxLength, ty
         maxLength={maxLength}
         className='form-control'
         placeholder={placeholder}
-        value={formik.values[name]}
-        onChange={formik.handleChange}
-        onFocus={() => setIsFocused(true)}
+        value={preventChange ? formattedValue : formik.values[name]}
+        onChange={preventChange ? () => {} : formik.handleChange}
+        onFocus={() => {
+          setIsFocused(true)
+          onFocus && onFocus()
+        }}
         onBlur={e => {
           setIsFocused(false)
           formik.handleBlur(e)
+          onBlur && onBlur()
         }}
+        autoComplete={autoComplete}
+        disabled={disabled}
       />
       {!isFocused ? (
         isInvalid ? (
-          <FontAwesomeIcon icon={faTimes} color='#d0021b' />
+          <FontAwesomeIcon className='z-input-invalid-icon' icon={faTimes} color='#d0021b' />
         ) : (
-          isFilled && <FontAwesomeIcon icon={faCheck} color='#15ac31' />
+          isFilled && (
+            <FontAwesomeIcon className='z-input-valid-icon' icon={faCheck} color='#15ac31' />
+          )
         )
       ) : (
         ''
@@ -77,6 +109,13 @@ ZInput.propTypes = {
   formik: PropTypes.object,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  preventChange: PropTypes.bool,
+  formattedValue: PropTypes.string,
+  autoComplete: PropTypes.string,
+  icon: PropTypes.node,
+  disabled: PropTypes.bool,
 }
 
 export default ZInput

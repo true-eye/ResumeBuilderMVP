@@ -1,0 +1,21 @@
+.z-checkbox {
+  position: relative;
+  display: block;
+  min-height: 19.5px;
+  padding-left: 1.5rem;
+  margin-top: -6px;
+
+  input {
+    width: 17px;
+    height: 15px;
+  }
+  label {
+    font-size: 14px;
+    position: relative;
+    margin-bottom: 0;
+    padding-left: 15px;
+    cursor: pointer;
+    line-height: 28px;
+    color: #808080;
+  }
+}

@@ -1,0 +1,27 @@
+.container-tip {
+  float: right;
+  .dropdown-switcher.link,
+  .dropdown-switcher:hover {
+    text-transform: uppercase;
+  }
+
+  .link {
+    color: #48a4ff;
+    font-size: 12px;
+    cursor: pointer;
+
+    svg {
+      font-size: 14px;
+    }
+  }
+
+  .link-v-separator::before {
+    content: '|';
+    display: inline-block;
+    color: #7d97ad;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    margin: 0 10px;
+  }
+}

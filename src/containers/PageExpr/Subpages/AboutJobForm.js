@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col, Form } from 'react-bootstrap'
-import { ZInput } from 'components/themes.js'
+import { ZInput, ZMonthPicker, ZCheckbox } from 'components/themes.js'
 
 /**
  * @form
@@ -51,6 +51,29 @@ const AboutJobForm = ({ formik }) => {
             name='jobstate'
             label='State'
             placeholder='e.g. CA'
+          />
+        </Col>
+      </Row>
+      <Row>
+        <Col sm={6} className='col-city'>
+          <ZMonthPicker id='startDate' name='startDate' formik={formik} label='Start Date' />
+        </Col>
+        <Col sm={6} className='col-city'>
+          <ZMonthPicker
+            id='endDate'
+            name='endDate'
+            formik={formik}
+            label='End Date'
+            disabled={formik.values.currentJob}
+          />
+          <ZCheckbox
+            id='currentJob'
+            label='I currently work here'
+            name='currentJob'
+            formik={formik}
+            onChange={currentJob =>
+              currentJob && formik.setValues({ ...formik.values, endDate: undefined, currentJob })
+            }
           />
         </Col>
       </Row>
