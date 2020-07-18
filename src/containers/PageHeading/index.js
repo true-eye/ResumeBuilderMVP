@@ -1,10 +1,11 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import { ZButton, ZButtonGroupFooter } from 'components/themes.js'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import ContactForm from './ContactForm'
-import ResumeThumbnail from './ResumeThumbnail'
+import ResumeThumbnail from 'containers/ResumeThumbnail'
 import './index.scss'
 
 const schema = yup.object({
@@ -15,6 +16,7 @@ const schema = yup.object({
 })
 
 const PageHeading = () => {
+  const history = useHistory()
   const formik = useFormik({
     initialValues: {
       FNAM: '',
@@ -29,6 +31,8 @@ const PageHeading = () => {
     validationSchema: schema,
     onSubmit: (values, actions) => {
       console.log('onSubmit', values)
+
+      history.push('/resume/tips/expr')
     },
   })
 
@@ -46,7 +50,7 @@ const PageHeading = () => {
         <Col md={7} lg={8}>
           <ContactForm formik={formik} />
         </Col>
-        <Col md={5} lg={4} className='resume-thumbnail'>
+        <Col md={5} lg={4}>
           <ResumeThumbnail data={{ cntc: formik.values }} />
         </Col>
       </Row>

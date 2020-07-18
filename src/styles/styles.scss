@@ -194,10 +194,6 @@ body {
   height: 100%;
 }
 
-.container-body {
-  padding: 0;
-}
-
 .page-wrap {
   min-height: 100%;
   margin-bottom: -137px;
@@ -206,4 +202,12 @@ body {
 .custom-preview-scrollbar {
   overflow: auto;
   height: auto;
+}
+
+.page-title {
+  font-size: 25px;
+  color: $defaultColor;
+  line-height: 1.5;
+  margin-bottom: 5px;
+  font-weight: 300;
 }

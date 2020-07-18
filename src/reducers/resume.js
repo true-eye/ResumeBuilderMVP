@@ -2,9 +2,10 @@ import { EXAMPLE } from 'actions/types'
 
 const initialState = {
   loading: false,
+  completedUntil: -1,
 }
 
-function exampleReducer(state = initialState, action) {
+function resumeReducer(state = initialState, action) {
   switch (action.type) {
     case EXAMPLE.GET_REQUEST:
       return {
@@ -17,4 +18,4 @@ function exampleReducer(state = initialState, action) {
   }
 }
 
-export default exampleReducer
+export default resumeReducer

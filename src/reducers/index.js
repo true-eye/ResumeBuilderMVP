@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import storage from 'redux-persist/lib/storage'
 import { persistReducer } from 'redux-persist'
-import example from './example'
+import resume from './resume'
 
 const persistConfig = {
   key: 'root',
@@ -13,7 +13,7 @@ const appReducer = asyncReducers =>
   persistReducer(
     persistConfig,
     combineReducers({
-      example: example,
+      resume: resume,
       ...asyncReducers,
     }),
   )

@@ -12,7 +12,7 @@ const SectionContact = ({ CITY = '', STAT = '', ZIPC = '', HPHN = '', EMAI = '' 
         CITY: 'San Francisco',
         STAT: 'CA',
         ZIPC: '94105',
-        HPHN: '5554321000',
+        HPHN: '415-555-5555',
         EMAI: 'resumesample@example.com',
       }
     : {

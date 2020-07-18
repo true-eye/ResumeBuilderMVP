@@ -5,13 +5,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import ZResumePreview from 'components/ZResumePreview'
 import PropTypes from 'prop-types'
-import './ResumeThumbnail.scss'
+import classNames from 'classnames'
+import './index.scss'
 
-const ResumeThumbnail = ({ data }) => {
+const ResumeThumbnail = ({ data, className, highlight }) => {
   const [showPopup, setShowPopup] = useState(false)
 
   return (
-    <div className='resume-thumbnail'>
+    <div className={classNames('resume-thumbnail', className)}>
       <Modal
         show={showPopup}
         onHide={() => setShowPopup(false)}
@@ -30,7 +31,7 @@ const ResumeThumbnail = ({ data }) => {
         onClick={() => setShowPopup(true)}
         onKeyDown={() => {}}
       >
-        <ZResumePreview data={data} />
+        <ZResumePreview data={data} highlight={highlight} />
       </div>
       <p className='btn-preview-ctnr'>
         <ZButton className='btn-preview' onClick={() => setShowPopup(true)}>
@@ -44,6 +45,8 @@ const ResumeThumbnail = ({ data }) => {
 
 ResumeThumbnail.propTypes = {
   data: PropTypes.object,
+  className: PropTypes.string,
+  highlight: PropTypes.string,
 }
 
 export default ResumeThumbnail

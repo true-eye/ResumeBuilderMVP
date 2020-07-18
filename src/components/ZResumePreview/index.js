@@ -4,7 +4,7 @@ import LeftBox from './LeftBox'
 import RightBox from './RightBox'
 import './index.scss'
 
-const ZResumePreview = ({ data = {} }) => {
+const ZResumePreview = ({ data = {}, highlight }) => {
   return (
     <div
       id='document'
@@ -12,7 +12,7 @@ const ZResumePreview = ({ data = {} }) => {
     >
       <div id='CONTAINER_PARENT_0' className='parentContainer'>
         <LeftBox data={data} />
-        <RightBox data={data} />
+        <RightBox data={data} highlight={highlight} />
       </div>
     </div>
   )
@@ -20,6 +20,7 @@ const ZResumePreview = ({ data = {} }) => {
 
 ZResumePreview.propTypes = {
   data: PropTypes.object,
+  highlight: PropTypes.string,
 }
 
 export default ZResumePreview
