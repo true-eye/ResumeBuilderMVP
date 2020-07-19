@@ -197,6 +197,11 @@ body {
 .page-wrap {
   min-height: 100%;
   margin-bottom: -137px;
+  &::after {
+    content: '';
+    display: block;
+    height: 136px;
+  }
 }
 
 .custom-preview-scrollbar {

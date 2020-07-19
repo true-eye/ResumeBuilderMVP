@@ -16,6 +16,8 @@
     "bootstrap": "^4.3.1",
     "classnames": "^2.2.6",
     "core-js": "^3.1.4",
+    "draft-js": "^0.11.6",
+    "draftjs-to-html": "^0.9.1",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-import": "^2.20.2",
     "formik": "^2.1.5",

@@ -19,11 +19,11 @@ const Pages = {
   AddJob: 'AddJob',
   EditJob: 'EditJob',
   WhatDidYouDo: 'WhatDidYouDo',
-  Summary: 'AboutYourJob',
+  Summary: 'Summary',
 }
 
 const PageExprSection = () => {
-  const [page, setPage] = useState(Pages.WhatDidYouDo)
+  const [page, setPage] = useState(Pages.Summary)
   const [current, setCurrent] = useState(0) // selected job index, another means the index of info.expr
   const history = useHistory()
   const dispatch = useDispatch()

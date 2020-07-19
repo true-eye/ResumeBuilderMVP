@@ -9,6 +9,7 @@ import ReactDOM from 'react-dom'
 import App from './App'
 
 import 'react-calendar/dist/Calendar.css'
+import 'draft-js/dist/Draft.css'
 import './styles/styles.scss'
 
 import * as serviceWorker from './serviceWorker'

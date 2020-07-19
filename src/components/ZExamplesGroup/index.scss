@@ -1,0 +1,110 @@
+.examples-group {
+  padding: 0 0 15px;
+  overflow-x: hidden;
+  margin: 0 18px;
+
+  .examples-item {
+    font-family: HK Grotesk, sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: stretch;
+    align-items: stretch;
+    min-height: 60px;
+    border: 1px solid #e8ecf0;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(88, 88, 95, 0.15);
+
+    .example-icon {
+      position: relative;
+      width: 23px;
+      background-color: #3983fa;
+      -ms-flex-item-align: stretch;
+      align-self: stretch;
+      border-right: 1px solid #e8ecf0;
+      min-height: 60px;
+      margin: -1px 0 -1px -1px;
+
+      button {
+        border-radius: 0 !important;
+        background-color: rgba(0, 0, 0, 0);
+        border: 0;
+        outline: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+        transform: translateX(-50%) translateY(-50%) rotate(-90deg);
+
+        &::before {
+          content: 'ADD';
+          font-size: 11px;
+          font-family: HK Grotesk, sans-serif;
+          font-weight: 700;
+          color: #fff;
+          white-space: nowrap;
+        }
+      }
+    }
+
+    .example-text {
+      padding: 12px 15px;
+      font-size: 14px;
+      width: calc(100% - 22px);
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      -ms-flex-item-align: center;
+      align-self: center;
+    }
+
+    &:nth-child(1) {
+      margin-top: 0;
+    }
+
+    &.expert-recommended {
+      .example-icon {
+        width: 30px;
+
+        border-right: 0;
+        margin: 0 0 0 -1px;
+      }
+      .example-text {
+        position: relative;
+        width: 100%;
+        padding: 30px 15px 12px 15px;
+        border-width: 1px 2px 1px 0;
+        border-style: solid;
+        border-color: #3983fa;
+        &::before {
+          content: '\f005';
+          font-family: 'Font Awesome 5 Free', sans-serif;
+          font-size: 1.1rem;
+          font-style: normal;
+          font-weight: 900;
+          color: #3983fa;
+          position: absolute;
+          left: 15px;
+          top: 11px;
+        }
+        &::after {
+          content: 'Expert recommendation';
+          position: absolute;
+          left: 33px;
+          font-size: 1.3rem;
+          top: 10px;
+          color: #3983fa;
+          font-weight: 600;
+        }
+      }
+    }
+
+    &:hover {
+      .example-icon {
+        background-color: #e44747;
+      }
+    }
+  }
+}
