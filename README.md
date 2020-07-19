@@ -1,6 +1,5 @@
-# React + Redux + Saga + Bootstrap + Scss + Antd
+# React + Redux + Saga + Bootstrap + Scss
 
-`
-yarn install
-yarn start
-`
+`yarn install`
+
+`yarn start`

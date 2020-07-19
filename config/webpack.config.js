@@ -414,14 +414,6 @@ module.exports = function(webpackEnv) {
                   loader: 'less-loader',
                   options: {
                     javascriptEnabled: true,
-                    modifyVars: {
-                      'primary-color': 'rgb(0, 148, 159)',
-                      'link-color': 'rgb(0, 148, 159)',
-                      'border-radius-base': '3px',
-                      'success-color': '#ff5f42',
-                      'warning-color': '#faad14',
-                      'error-color': '#f5222d',
-                    },
                   },
                 },
               ],
