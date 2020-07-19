@@ -1,0 +1,23 @@
+.sortable-list {
+  .my-item {
+    display: flex;
+    padding: 0.3rem;
+    border-radius: 0.2rem;
+    background-color: #fff6;
+    margin-bottom: 0.3rem;
+    &.sortable-ghost {
+      background-color: #c8ebfb;
+    }
+  }
+  .para-group {
+  }
+
+  .btn-block-add {
+    border: 1px dashed #06c;
+    font-weight: 600;
+    color: #06c;
+    background-color: #f6f8fa;
+    padding: 1.6rem 0;
+    line-height: 19px;
+  }
+}

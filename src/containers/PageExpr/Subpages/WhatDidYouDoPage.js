@@ -129,7 +129,7 @@ const WhatDidYouDoPage = ({ info, current, onNext, onBack }) => {
           <PageTitle experience={experience} />
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          <TipContainer data={updatedResume}>
+          <TipContainer info={updatedResume}>
             <TipContentExpr />
           </TipContainer>
         </Col>

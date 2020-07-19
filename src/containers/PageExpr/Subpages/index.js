@@ -1,4 +1,5 @@
 import AddEditPage from './AddEditPage'
 import WhatDidYouDoPage from './WhatDidYouDoPage'
+import SummaryPage from './SummaryPage'
 
-export { AddEditPage, WhatDidYouDoPage }
+export { AddEditPage, WhatDidYouDoPage, SummaryPage }

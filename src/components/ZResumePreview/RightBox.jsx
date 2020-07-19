@@ -4,7 +4,9 @@ import SectionSummary from './SectionSummary'
 import SectionExpr from './SectionExpr'
 import SectionEduc from './SectionEduc'
 
-const RightBox = ({ data = {}, highlight }) => {
+const RightBox = ({ info = {}, highlight }) => {
+  const expr = info.expr
+
   return (
     <div id='CONTAINER_1' className='right-box'>
       <div
@@ -19,7 +21,7 @@ const RightBox = ({ data = {}, highlight }) => {
         className='sortable-item section-container SortableItem-sibling  data-EXPR'
       >
         <div className='document-tool sec-tool' id='editIcons'></div>
-        <SectionExpr highlight={highlight === 'expr'} />
+        <SectionExpr expr={expr} highlight={highlight === 'expr'} />
       </div>
       <div
         data-react-beautiful-dnd-draggable='1'
@@ -33,7 +35,7 @@ const RightBox = ({ data = {}, highlight }) => {
 }
 
 RightBox.propTypes = {
-  data: PropTypes.object,
+  info: PropTypes.object,
   highlight: PropTypes.string,
 }
 

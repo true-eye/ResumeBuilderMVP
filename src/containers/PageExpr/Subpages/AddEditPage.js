@@ -21,9 +21,17 @@ import './AddEditPage.scss'
  */
 
 const schema = yup.object({
+  position: yup.string().required('Please enter your job title.'),
+  company: yup.string().required(`Please enter the employer's name.`),
   startDate: yup.date(),
   endDate: yup
     .date()
+    .when(['startDate', 'currentJob'], {
+      is: (startDate, currentJob) => {
+        return !currentJob && !!startDate
+      },
+      then: yup.date().required('Please enter an End Year.'),
+    })
     .when(
       'startDate',
       (startDate, sch) =>
@@ -54,15 +62,22 @@ const AddEditPage = ({ info, onNext }) => {
     formik.handleSubmit()
   }
 
+  const isNotBegin = info.expr && info.expr.length
+
+  const pageTitle = isNotBegin ? 'Tell us about another job' : 'Tell us about your most recent job'
+  const subTitle = isNotBegin
+    ? 'We’ll put your work history in the right order.'
+    : 'We’ll start there and work backward.'
+
   return (
     <Container className='section-expr section-expr-addedit'>
       <Row className='page-title-wrap'>
         <Col xs={9} className='col-page-title'>
-          <h1 className='page-title'>Tell us about another job</h1>
-          <p className='sub-title'>We’ll put your work history in the right order.</p>
+          <h1 className='page-title'>{pageTitle}</h1>
+          <p className='sub-title'>{subTitle}</p>
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          <TipContainer data={{ ...info, expr: [formik.values] }}>
+          <TipContainer info={{ ...info, expr: [...info.expr, formik.values] }}>
             <TipContentExpr />
           </TipContainer>
         </Col>

@@ -10,7 +10,7 @@ import './index.scss'
 
 /**
  * @component
- * @param {object}    data
+ * @param {object}    info
  * @param {className} string
  * @param {string}    highlight
  *
@@ -20,7 +20,7 @@ import './index.scss'
  * @version 0.0.1
  */
 
-const ResumeThumbnail = ({ data, className, highlight }) => {
+const ResumeThumbnail = ({ info, className, highlight }) => {
   const [showPopup, setShowPopup] = useState(false)
 
   return (
@@ -33,7 +33,7 @@ const ResumeThumbnail = ({ data, className, highlight }) => {
       >
         <Modal.Header closeButton></Modal.Header>
         <div className='custom-preview-scrollbar scroll-wrapper'>
-          <ZResumePreview data={data} />
+          <ZResumePreview info={info} />
         </div>
       </Modal>
       <div
@@ -43,7 +43,7 @@ const ResumeThumbnail = ({ data, className, highlight }) => {
         onClick={() => setShowPopup(true)}
         onKeyDown={() => {}}
       >
-        <ZResumePreview data={data} highlight={highlight} />
+        <ZResumePreview info={info} highlight={highlight} />
       </div>
       <p className='btn-preview-ctnr'>
         <ZButton className='btn-preview' onClick={() => setShowPopup(true)}>
@@ -56,7 +56,7 @@ const ResumeThumbnail = ({ data, className, highlight }) => {
 }
 
 ResumeThumbnail.propTypes = {
-  data: PropTypes.object,
+  info: PropTypes.object,
   className: PropTypes.string,
   highlight: PropTypes.string,
 }

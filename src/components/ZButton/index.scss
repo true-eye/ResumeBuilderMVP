@@ -66,6 +66,11 @@
     }
   }
 
+  &-block {
+    display: block;
+    width: 100%;
+  }
+
   &-disabled {
     cursor: inherit;
     background: gray;

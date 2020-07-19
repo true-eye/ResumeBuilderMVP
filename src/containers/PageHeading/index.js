@@ -62,7 +62,7 @@ const PageHeading = () => {
           <ContactForm formik={formik} />
         </Col>
         <Col md={5} lg={4}>
-          <ResumeThumbnail data={{ ...info, cntc: formik.values }} />
+          <ResumeThumbnail info={{ ...info, cntc: formik.values }} />
         </Col>
       </Row>
       <ZButtonGroupFooter>

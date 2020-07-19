@@ -6,28 +6,28 @@ import './index.scss'
 
 /**
  * @component
- * @param {object}    data        (resume info)
+ * @param {object}    info        (resume info)
  * @param {string}    highlight   (highlighted setion name: expr | )
  *
  * @version 0.0.1
  */
 
-const ZResumePreview = ({ data = {}, highlight }) => {
+const ZResumePreview = ({ info = {}, highlight }) => {
   return (
     <div
       id='document'
       className='document fontsize fontface vmargins hmargins pagesize skn-srz1 SRZ1  ZTY'
     >
       <div id='CONTAINER_PARENT_0' className='parentContainer'>
-        <LeftBox data={data} />
-        <RightBox data={data} highlight={highlight} />
+        <LeftBox info={info} />
+        <RightBox info={info} highlight={highlight} />
       </div>
     </div>
   )
 }
 
 ZResumePreview.propTypes = {
-  data: PropTypes.object,
+  info: PropTypes.object,
   highlight: PropTypes.string,
 }
 

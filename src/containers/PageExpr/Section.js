@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { completeStepAction, saveStepAction } from 'actions/resume'
-import { AddEditPage, WhatDidYouDoPage } from './Subpages'
+import { AddEditPage, WhatDidYouDoPage, SummaryPage } from './Subpages'
 import './Section.scss'
 
 /**
@@ -23,11 +23,11 @@ const Pages = {
 }
 
 const PageExprSection = () => {
-  const [page, setPage] = useState(Pages.Summary)
+  const info = useSelector(state => state.resume.info)
+  const [page, setPage] = useState(info.expr && info.expr.length ? Pages.Summary : Pages.AddJob)
   const [current, setCurrent] = useState(0) // selected job index, another means the index of info.expr
   const history = useHistory()
   const dispatch = useDispatch()
-  const info = useSelector(state => state.resume.info)
 
   if (page === Pages.AddJob || page === Pages.EditJob) {
     return (
@@ -65,6 +65,8 @@ const PageExprSection = () => {
       />
     )
   }
+
+  return <SummaryPage />
 }
 
 export default PageExprSection

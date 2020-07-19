@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import SectionName from './SectionName'
 import SectionContact from './SectionContact'
 
-const LeftBox = ({ data = {} }) => {
-  const cntc = data.cntc || {}
+const LeftBox = ({ info = {} }) => {
+  const cntc = info.cntc || {}
 
   return (
     <div id='CONTAINER_0' className='left-box'>
@@ -68,7 +68,7 @@ const LeftBox = ({ data = {} }) => {
 }
 
 LeftBox.propTypes = {
-  data: PropTypes.object,
+  info: PropTypes.object,
 }
 
 export default LeftBox

@@ -1,0 +1,139 @@
+.para-item {
+  position: relative;
+  border: 1px solid #e8ecf0;
+  cursor: pointer;
+  display: block;
+  padding: 20px 115px 0 60px;
+  margin-bottom: 20px;
+  height: auto;
+  background-color: #fff;
+
+  .para-head {
+    .para-count {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+      text-indent: 9px;
+      line-height: 30px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 47px 47px 0 0;
+        border-color: #007bff rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+        z-index: -1;
+      }
+
+      &.para-count-0 {
+        &::before {
+          border-top-color: #266cb4;
+        }
+      }
+
+      &.para-count-1 {
+        &::before {
+          border-top-color: #009f76;
+        }
+      }
+
+      &.para-count-2 {
+        &::before {
+          border-top-color: #f0bd01;
+        }
+      }
+    }
+
+    .para-title,
+    .para-s-title {
+      font-weight: 600;
+      // font-family: 'Source Sans Pro';
+      color: #58585f;
+
+      font-size: 14px;
+      line-height: 1.2em;
+      display: inline-block !important;
+      margin-bottom: 0;
+    }
+
+    .para-title {
+      font-weight: 600;
+      font-family: 'Source Sans Pro';
+    }
+
+    .para-s-title {
+      font-weight: 400;
+
+      .v-divider {
+        margin-right: 2px;
+      }
+
+      &::before {
+        content: '|';
+        padding: 0 5px;
+      }
+    }
+  }
+
+  .para-info {
+    color: #706668;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    overflow: hidden;
+    padding: 2rem 0;
+    max-height: 10.5rem;
+
+    #linkAddDescription {
+      color: #3a96f0;
+      background-color: rgba(0, 0, 0, 0);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    &.bottom-shadow {
+      &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        margin: 0;
+        bottom: 0;
+        background-image: linear-gradient(to bottom, rgba(252, 252, 252, 0) 0%, #fcfcfc 60%);
+        height: 45px;
+      }
+    }
+  }
+
+  .para-toolbar {
+    position: absolute;
+    top: 9px;
+    right: 10px;
+
+    button {
+      background-color: rgba(0, 0, 0, 0);
+      min-width: auto;
+      padding: 10px;
+      margin: 0 !important;
+      border: 0;
+
+      svg {
+        color: #48a4ff;
+        line-height: 1.5;
+        font-size: 12px !important;
+        font-weight: 900;
+      }
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

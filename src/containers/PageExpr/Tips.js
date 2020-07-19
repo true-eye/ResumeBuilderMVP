@@ -33,7 +33,7 @@ const PageExprTips = () => {
           </ul>
         </Col>
         <Col md={4}>
-          <ResumeThumbnail className='tips-expr-resume-thumbnail' highlight='expr' data={info} />
+          <ResumeThumbnail className='tips-expr-resume-thumbnail' highlight='expr' info={info} />
         </Col>
       </Row>
       <ZButtonGroupFooter>

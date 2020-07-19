@@ -9,13 +9,13 @@ import './index.scss'
 
 /**
  * @component
- * @param {object}    data (resume info)
+ * @param {object}    info (resume info)
  *
  *
  * @version 0.0.1
  */
 
-const TipContainer = ({ data, children }) => {
+const TipContainer = ({ info, children }) => {
   const [showTip, setShowTip] = useState(false)
   const [showPopup, setShowPopup] = useState(false)
 
@@ -37,7 +37,7 @@ const TipContainer = ({ data, children }) => {
       >
         <Modal.Header closeButton></Modal.Header>
         <div className='custom-preview-scrollbar scroll-wrapper'>
-          <ZResumePreview data={data} />
+          <ZResumePreview info={info} />
         </div>
       </Modal>
       <TipDialog show={showTip} onClose={() => setShowTip(false)}>
@@ -48,7 +48,7 @@ const TipContainer = ({ data, children }) => {
 }
 
 TipContainer.propTypes = {
-  data: PropTypes.object,
+  info: PropTypes.object,
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
 }
 

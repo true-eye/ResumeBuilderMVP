@@ -7,6 +7,7 @@ import ZSearch from './ZSearch'
 import ZLoaderNew from './ZLoaderNew'
 import ZExamplesGroup from './ZExamplesGroup'
 import ZRelatedJobTitles from './ZRelatedJobTitles'
+import ZSortableList from './ZSortableList'
 
 export {
   ZInput,
@@ -18,4 +19,5 @@ export {
   ZLoaderNew,
   ZExamplesGroup,
   ZRelatedJobTitles,
+  ZSortableList,
 }

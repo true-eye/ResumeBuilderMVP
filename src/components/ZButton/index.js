@@ -12,6 +12,7 @@ import './index.scss'
  * @param {bool}        loading
  * @param {bool}        disabled
  * @param {string}      className
+ * @param {bool}        block
  *
  * @version 0.0.1
  */
@@ -23,10 +24,17 @@ const ZButton = ({
   onClick,
   loading = false,
   disabled = false,
+  block = false,
 }) => {
-  const btnClass = classnames('z-btn', `z-btn-${variant}`, className, {
-    'z-btn-disabled': disabled || loading,
-  })
+  const btnClass = classnames(
+    'z-btn',
+    `z-btn-${variant}`,
+    {
+      'z-btn-disabled': disabled || loading,
+      'z-btn-block': block,
+    },
+    className,
+  )
 
   return (
     <button
@@ -54,6 +62,7 @@ ZButton.propTypes = {
   loading: PropTypes.bool,
   disabled: PropTypes.bool,
   className: PropTypes.string,
+  block: PropTypes.bool,
 }
 
 export default ZButton
