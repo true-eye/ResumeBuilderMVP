@@ -1,0 +1,26 @@
+.tool-tip {
+  width: 265px;
+  display: block;
+  background-color: #f1f8fe;
+  border: 2px solid #3983fa;
+  box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+  padding: 11px 15px 15px;
+  color: #000;
+  font-size: 1.3rem;
+  font-weight: 400;
+  text-align: left;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 10;
+  font-family: 'HK Grotesk', sans-serif;
+
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    border-color: transparent;
+    border-style: solid;
+    position: absolute;
+  }
+}

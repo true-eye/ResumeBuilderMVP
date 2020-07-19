@@ -33,6 +33,14 @@
     top: -8px;
   }
 
+  &.modal-tip-dialog.hidden-tool-tip {
+    visibility: hidden;
+    z-index: 1000;
+    opacity: 0;
+    transition: all ease 0.3s;
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+  }
   .modal-tip-header {
     .close-tip {
       position: absolute;

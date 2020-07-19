@@ -31,7 +31,7 @@ const ResumeThumbnail = ({ data, className, highlight }) => {
         size='lg'
         className='modal-preview-resume'
       >
-        <Modal.Header closeButton>{/* <Modal.Title>Modal heading</Modal.Title> */}</Modal.Header>
+        <Modal.Header closeButton></Modal.Header>
         <div className='custom-preview-scrollbar scroll-wrapper'>
           <ZResumePreview data={data} />
         </div>

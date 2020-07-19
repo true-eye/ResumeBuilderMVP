@@ -1,9 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Container, Row, Col } from 'react-bootstrap'
 import { ZButton, ZButtonGroupFooter } from 'components/themes.js'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import TipContainer from 'containers/TipContainer'
+import { TipContentExpr } from 'containers/TipContainer/Contents'
 import AboutJobForm from './AboutJobForm'
 import './AddEditPage.scss'
 
@@ -11,6 +13,9 @@ import './AddEditPage.scss'
  * @page
  * @route /resume/section/expr
  * @subpage Add or Edit Job
+ *
+ * @param {object}    info  (resume info)
+ * @param {function}  onNext
  *
  * @version 0.0.1
  */
@@ -26,7 +31,7 @@ const schema = yup.object({
     ),
 })
 
-const AddEditPage = () => {
+const AddEditPage = ({ info, onNext }) => {
   const formik = useFormik({
     initialValues: {
       position: '',
@@ -36,10 +41,12 @@ const AddEditPage = () => {
       startDate: undefined,
       endDate: undefined,
       currentJob: false,
+      description: '',
     },
     validationSchema: schema,
     onSubmit: (values, actions) => {
       console.log('onSubmit', values)
+      onNext(values)
     },
   })
 
@@ -55,7 +62,9 @@ const AddEditPage = () => {
           <p className='sub-title'>We’ll put your work history in the right order.</p>
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          <TipContainer />
+          <TipContainer data={{ ...info, expr: [formik.values] }}>
+            <TipContentExpr />
+          </TipContainer>
         </Col>
       </Row>
       <AboutJobForm formik={formik} />
@@ -67,6 +76,11 @@ const AddEditPage = () => {
       </ZButtonGroupFooter>
     </Container>
   )
+}
+
+AddEditPage.propTypes = {
+  info: PropTypes.object,
+  onNext: PropTypes.func,
 }
 
 export default AddEditPage

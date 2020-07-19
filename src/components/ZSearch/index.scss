@@ -1,0 +1,138 @@
+.z-search {
+  position: relative;
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-style: italic;
+    color: #d7dde2;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    font-style: italic;
+    color: #d7dde2;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    font-style: italic;
+    color: #d7dde2;
+  }
+
+  .control-label {
+    font-family: HK Grotesk, sans-serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    color: #334d6b;
+    line-height: 24px;
+
+    padding: 0px 2px 2px;
+  }
+
+  .form-control {
+    color: #333;
+    border: 1px solid #d7dde2;
+
+    height: 40px;
+    width: 100%;
+    box-shadow: none;
+    font-size: 15px;
+    padding-left: 15px;
+    padding-right: 45px;
+    border-radius: 3px;
+
+    &:focus {
+      box-shadow: none;
+      border-color: #48a4ff;
+      caret-color: #48a4ff;
+    }
+  }
+
+  .fa-search {
+    position: absolute;
+    right: 7px;
+    top: auto;
+    bottom: 5px;
+    cursor: pointer;
+    padding: 8px 5px;
+    z-index: 2;
+    width: 30px;
+    height: 30px;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+    text-align: center;
+    background-color: #3983fa;
+  }
+
+  .react-autosuggest__container:hover ~ .tool-tip {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .react-autosuggest__suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9;
+    overflow: auto;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(88, 88, 95, 0.2);
+    height: inherit;
+    font-size: 13px;
+
+    &--open {
+      top: calc(100% + 5px);
+      border-radius: 3px;
+      border: 1px solid #767676;
+      box-shadow: none;
+      max-height: 342px;
+
+      ul {
+        font-size: 12px;
+        font-family: 'Tahoma', sans-serif;
+        li {
+          line-height: 23px;
+          cursor: pointer;
+          border-top: 0;
+          padding-left: 1.5rem;
+          padding-top: 0.5rem;
+          padding-right: 1.5rem;
+          padding-bottom: 0.5rem;
+
+          color: #58585f;
+          text-transform: capitalize;
+
+          &:hover {
+            background: #f6f8fa;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
+  .search-tool-tip {
+    left: 20%;
+    top: -45px;
+    width: 277px;
+    padding: 10px 18px;
+
+    &::before {
+      border-width: 16px 7px 0px 7px;
+      left: 45%;
+      border-top-color: #3983fa;
+      bottom: -16px;
+    }
+
+    &::after {
+      border-width: 16px 7px 0px 7px;
+      left: 45%;
+      border-top-color: #f1f8fe;
+      bottom: -11px;
+    }
+  }
+}

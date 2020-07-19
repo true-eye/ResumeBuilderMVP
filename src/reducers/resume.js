@@ -27,6 +27,15 @@ const initialState = {
 function resumeReducer(state = initialState, action) {
   switch (action.type) {
     case RESUME.SAVE_STEP:
+      if (action.field === 'expr') {
+        return {
+          ...state,
+          info: {
+            [action.field]: [...action.value],
+          },
+        }
+      }
+
       return {
         ...state,
         info: {
