@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const SectionSummary = ({}) => {
+const SectionSummary = () => {
   return (
     <div
       id='SECTION_SUMMa97a3f24-952d-4baf-adf5-6bc5359c9f77'

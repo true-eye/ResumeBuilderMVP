@@ -122,8 +122,6 @@ body {
   display: table-cell;
   padding: 15px;
   box-sizing: initial;
-
-  background: #003d73;
   width: 154px;
 }
 #document.skn-srz1 .left-box .section {
@@ -221,7 +219,7 @@ body {
 }
 
 #document.skn-srz1 .left-box .outer-square,
-#document.skn-srz1 right-box .outer-square,
+#document.skn-srz1 .right-box .outer-square,
 #document.skn-srz1 .left-box .inner-square,
 #document.skn-srz1 .right-box .inner-square {
   height: 7px;
@@ -260,7 +258,7 @@ body {
 }
 
 #document.skn-srz1.fontface {
-  font-family: Century Gothic;
+  font-family: 'Century Gothic', sans-serif;
 }
 #document.skn-srz1.fontsize {
   font-size: 11px;

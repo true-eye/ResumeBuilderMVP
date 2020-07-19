@@ -17,7 +17,7 @@ function* getRequest(action) {
 }
 
 function* resumeSagas() {
-  // yield all([takeLatest(RESUME.GET_REQUEST, getRequest)])
+  yield all([takeLatest(RESUME.GET_REQUEST, getRequest)])
 }
 
 export default resumeSagas
