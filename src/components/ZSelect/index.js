@@ -14,6 +14,7 @@ import './index.scss'
  * @param {object}    formik
  * @param {string}    placeholder
  * @param {bool}      disabled
+ * @param {array}     options
  *
  * @version 0.0.1
  */
@@ -77,7 +78,7 @@ const customStyles = {
   }),
 }
 
-const ZSelect = ({ id, label, name, formik, placeholder, disabled }) => {
+const ZSelect = ({ id, label, name, formik, placeholder, disabled, options = [] }) => {
   const isFilled = formik.values[name] && formik.values[name].length
   const isValid = !formik.errors[name]
   const isInvalid = formik.touched[name] && formik.errors[name]
@@ -96,17 +97,7 @@ const ZSelect = ({ id, label, name, formik, placeholder, disabled }) => {
         {label}
       </label>
       <Select
-        options={[
-          { value: 'chocolate', label: 'Chocolate' },
-          { value: 'strawberry', label: 'Strawberry' },
-          { value: 'vanilla', label: 'Vanilla' },
-          { value: 'chocolate', label: 'Chocolate' },
-          { value: 'strawberry', label: 'Strawberry' },
-          { value: 'vanilla', label: 'Vanilla' },
-          { value: 'chocolate', label: 'Chocolate' },
-          { value: 'strawberry', label: 'Strawberry' },
-          { value: 'vanilla', label: 'Vanilla' },
-        ]}
+        options={options}
         className='Select'
         classNamePrefix='Select'
         id={id}
@@ -115,6 +106,10 @@ const ZSelect = ({ id, label, name, formik, placeholder, disabled }) => {
         styles={customStyles}
         placeholder={placeholder}
         isSearchable={false}
+        value={formik.values[name]}
+        onChange={item => {
+          formik.setValues({ ...formik.values, [name]: item.value })
+        }}
       />
 
       {isInvalid ? (
@@ -136,6 +131,7 @@ ZSelect.propTypes = {
   formik: PropTypes.object,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  options: PropTypes.array,
 }
 
 export default ZSelect

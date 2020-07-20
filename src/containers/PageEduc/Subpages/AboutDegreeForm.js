@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col, Form } from 'react-bootstrap'
 import { ZInput, ZMonthPicker, ZCheckbox, ZSelect } from 'components/themes.js'
+import { Degrees } from 'utils/constants'
 
 /**
  * @form
@@ -35,7 +36,14 @@ const AboutDegreeForm = ({ formik }) => {
       </Row>
       <Row>
         <Col sm={6}>
-          <ZSelect formik={formik} id='degree' name='degree' label='Degree' placeholder='Select' />
+          <ZSelect
+            formik={formik}
+            id='degree'
+            name='degree'
+            label='Degree'
+            placeholder='Select'
+            options={Degrees.map(deg => ({ label: deg, value: deg }))}
+          />
         </Col>
       </Row>
       <Row>

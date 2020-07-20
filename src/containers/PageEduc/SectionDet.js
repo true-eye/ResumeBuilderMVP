@@ -36,8 +36,6 @@ const PageEducSectionDet = () => {
 
   const currentExpr = info.expr && info.expr[current] ? info.expr[current] : null
 
-  console.log(info)
-
   const goBackToEducTips = () => {
     history.push('/resume/tips/expr')
   }
@@ -61,7 +59,7 @@ const PageEducSectionDet = () => {
         if (!educId) {
           // add one education to redux educ array
           dispatch(saveStepAction('educ', [...info.educ, { ...education, id: uuidv4() }]))
-          setCurrent(info.educ.length)
+          history.push('/resume/section/educ')
         } else {
           // update the selected education of redux educ array
           dispatch(
@@ -72,7 +70,6 @@ const PageEducSectionDet = () => {
             ]),
           )
         }
-        // setPage(Pages.WhatDidYouDo)
       }}
     />
   )

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { TipContentExpr } from 'containers/TipContainer/Contents'
 import { ZButton, ZButtonGroupFooter, ZSortableList } from 'components/themes.js'
 import { Pages } from '../Section'
+import ItemRendererExpr from '../ItemRenderer'
 import './SummaryPage.scss'
 
 /**
@@ -50,7 +51,7 @@ const SummaryPage = ({ onNext, onBack, setPage, setCurrent }) => {
   }
 
   return (
-    <Container className='section-expr section-expr-whatdidyoudo'>
+    <Container className='section-expr section-expr-summary'>
       <Row className='page-title-wrap'>
         <Col xs={9} className='col-page-title'>
           <h1 className='page-title'>Work history summary</h1>
@@ -69,7 +70,9 @@ const SummaryPage = ({ onNext, onBack, setPage, setCurrent }) => {
         onSelect={onEditExpr}
         onEdit={onEditExpr}
         onDelete={onDeleteExpr}
-      />
+      >
+        <ItemRendererExpr />
+      </ZSortableList>
       <ZButtonGroupFooter>
         <ZButton variant='default' onClick={onBack}>
           Back

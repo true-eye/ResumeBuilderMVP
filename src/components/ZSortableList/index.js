@@ -15,11 +15,12 @@ import './index.scss'
  * @param {function}  onEdit
  * @param {function}  onDelete
  * @param {function}  onSelect
+ * @param {element}  children
  *
  * @version 0.0.1
  */
 
-const ZSortableList = ({ list = [], onChange, onAdd, onEdit, onDelete, onSelect }) => {
+const ZSortableList = ({ list = [], onChange, onAdd, onEdit, onDelete, onSelect, children }) => {
   return (
     <section className='sortable-list'>
       <ReactSortable
@@ -37,7 +38,9 @@ const ZSortableList = ({ list = [], onChange, onAdd, onEdit, onDelete, onSelect 
             onSelect={() => onSelect(index)}
             onEdit={() => onEdit(index)}
             onDelete={() => onDelete(index)}
-          />
+          >
+            {children}
+          </ZSortableListItem>
         ))}
       </ReactSortable>
       <ZButton className='btn-block-add' block onClick={onAdd}>
@@ -55,6 +58,7 @@ ZSortableList.propTypes = {
   onEdit: PropTypes.func,
   onDelete: PropTypes.func,
   onSelect: PropTypes.func,
+  children: PropTypes.node,
 }
 
 export default ZSortableList

@@ -19,6 +19,15 @@ import './Tips.scss'
 const PageEducTips = () => {
   const history = useHistory()
   const info = useSelector(state => state.resume.info)
+
+  const onNext = () => {
+    if (info.educ && info.educ.length) {
+      history.push('/resume/section/educ')
+    } else {
+      history.push('/resume/section/educ-det')
+    }
+  }
+
   return (
     <Container className='tips-educ'>
       <Row>
@@ -40,7 +49,7 @@ const PageEducTips = () => {
         <ZButton variant='default' onClick={() => history.push('/resume/section/expr')}>
           Back
         </ZButton>
-        <ZButton variant='primary' onClick={() => history.push('/resume/section/educ-det')}>
+        <ZButton variant='primary' onClick={onNext}>
           NEXT
         </ZButton>
       </ZButtonGroupFooter>

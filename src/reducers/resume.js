@@ -28,7 +28,7 @@ const initialState = {
 function resumeReducer(state = initialState, action) {
   switch (action.type) {
     case RESUME.SAVE_STEP:
-      if (action.field === 'expr') {
+      if (action.field === 'expr' || action.field === 'educ') {
         return {
           ...state,
           info: {
