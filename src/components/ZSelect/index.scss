@@ -1,0 +1,33 @@
+.Select {
+  &__control {
+    &--is-focused {
+      box-shadow: none !important;
+      border-color: #d7dde2 !important;
+    }
+  }
+  &__menu {
+    &::after {
+      content: '';
+      border-bottom: 7px solid #fff;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      display: inline-block;
+      position: absolute;
+      right: 11px;
+      z-index: 99;
+      top: -6px;
+    }
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    ::-webkit-scrollbar-track {
+      background: rgba(130, 130, 130, 0.1076);
+      padding: 1px;
+      border-radius: 10px;
+    }
+  }
+}

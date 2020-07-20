@@ -21,6 +21,7 @@ const initialState = {
       EMAI: '',
     },
     expr: [],
+    educ: [],
   },
 }
 

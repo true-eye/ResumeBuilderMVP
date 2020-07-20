@@ -62,7 +62,8 @@ const ZInput = ({
       <label className={labelClass} htmlFor={id}>
         {label}
       </label>
-      {icon ? icon : ''}
+      <span className='prefix'>{icon ? icon : ''}</span>
+
       <input
         id={id}
         name={name}

@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import PageHeading from 'containers/PageHeading'
 import { PageExprSection, PageExprTips } from 'containers/PageExpr'
+import { PageEducTips, PageEducSectionDet } from 'containers/PageEduc'
 import Header from 'containers/Header'
 import Footer from 'containers/Footer'
 
@@ -19,6 +20,12 @@ const Routes = () => {
           </Route>
           <Route path='/resume/section/expr'>
             <PageExprSection />
+          </Route>
+          <Route path='/resume/tips/educ'>
+            <PageEducTips />
+          </Route>
+          <Route path='/resume/section/educ-det'>
+            <PageEducSectionDet />
           </Route>
           <Route render={() => <Redirect to='/resume/section/cntc' />} />
         </Switch>
