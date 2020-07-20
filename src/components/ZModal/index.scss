@@ -1,0 +1,57 @@
+.section-loader-new {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(255, 255, 255, 0.8);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+
+  &.hide {
+    display: none;
+  }
+
+  &::before {
+    display: -ms-flexbox;
+    display: flex;
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #46464e;
+    border-radius: 100%;
+    border-color: #46464e rgba(0, 0, 0, 0) rgba(0, 0, 0, 0);
+    -webkit-animation: spin 0.5s linear 0s infinite;
+    animation: spin 0.5s linear 0s infinite;
+
+    @-moz-keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @-webkit-keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+}

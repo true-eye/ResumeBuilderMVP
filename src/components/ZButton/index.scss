@@ -66,6 +66,14 @@
     }
   }
 
+  &-secondary {
+    background-color: #f6f8fa;
+    border: 1px solid #dbe1e5;
+    color: #4f4d5a;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
   &-block {
     display: block;
     width: 100%;

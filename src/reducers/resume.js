@@ -31,6 +31,7 @@ function resumeReducer(state = initialState, action) {
         return {
           ...state,
           info: {
+            ...state.info,
             [action.field]: [...action.value],
           },
         }
@@ -39,6 +40,7 @@ function resumeReducer(state = initialState, action) {
       return {
         ...state,
         info: {
+          ...state.info,
           [action.field]: {
             ...action.value,
           },

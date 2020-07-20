@@ -16,6 +16,10 @@ import './AddEditPage.scss'
  *
  * @param {object}    info  (resume info)
  * @param {function}  onNext
+ * @param {function}  onBack
+ * @param {object}    initialValues
+ * @param {bool}      isEdit
+ * @param {number}    current
  *
  * @version 0.0.1
  */
@@ -39,21 +43,11 @@ const schema = yup.object({
     ),
 })
 
-const AddEditPage = ({ info, onNext }) => {
+const AddEditPage = ({ info, onNext, onBack, initialValues, isEdit, current }) => {
   const formik = useFormik({
-    initialValues: {
-      position: '',
-      company: '',
-      jobcity: '',
-      jobstate: '',
-      startDate: undefined,
-      endDate: undefined,
-      currentJob: false,
-      description: '',
-    },
+    initialValues,
     validationSchema: schema,
     onSubmit: (values, actions) => {
-      console.log('onSubmit', values)
       onNext(values)
     },
   })
@@ -69,6 +63,13 @@ const AddEditPage = ({ info, onNext }) => {
     ? 'We’ll put your work history in the right order.'
     : 'We’ll start there and work backward.'
 
+  const updatedResume = !isEdit
+    ? { ...info, expr: [...info.expr, formik.values] }
+    : {
+        ...info,
+        expr: [...info.expr.slice(0, current), formik.values, ...info.expr.slice(current + 1)],
+      }
+
   return (
     <Container className='section-expr section-expr-addedit'>
       <Row className='page-title-wrap'>
@@ -77,14 +78,16 @@ const AddEditPage = ({ info, onNext }) => {
           <p className='sub-title'>{subTitle}</p>
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          <TipContainer info={{ ...info, expr: [...info.expr, formik.values] }}>
+          <TipContainer info={updatedResume}>
             <TipContentExpr />
           </TipContainer>
         </Col>
       </Row>
       <AboutJobForm formik={formik} />
       <ZButtonGroupFooter>
-        <ZButton variant='default'>Back</ZButton>
+        <ZButton variant='default' onClick={onBack}>
+          Back
+        </ZButton>
         <ZButton variant='primary' onClick={onSubmit}>
           NEXT
         </ZButton>
@@ -96,6 +99,10 @@ const AddEditPage = ({ info, onNext }) => {
 AddEditPage.propTypes = {
   info: PropTypes.object,
   onNext: PropTypes.func,
+  onBack: PropTypes.func,
+  initialValues: PropTypes.object,
+  isEdit: PropTypes.bool,
+  current: PropTypes.number,
 }
 
 export default AddEditPage

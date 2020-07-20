@@ -50,6 +50,7 @@ const PageHeading = () => {
   const onSubmit = e => {
     formik.handleSubmit()
   }
+  console.log(info)
 
   return (
     <Container className='section-cntc'>

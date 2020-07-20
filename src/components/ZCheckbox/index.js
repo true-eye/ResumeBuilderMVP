@@ -30,6 +30,7 @@ const ZCheckbox = ({ id, label, name, formik, onChange }) => {
       type='checkbox'
       className='z-checkbox'
       value={formik.values[name]}
+      checked={formik.values[name]}
       onChange={e => {
         formik.handleChange(e)
         onChange && onChange(e.target.checked)

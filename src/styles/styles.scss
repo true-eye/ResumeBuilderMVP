@@ -233,6 +233,84 @@ body {
 
 /* common page title style END */
 
+/* modal style START */
+.modal {
+  .modal-content {
+    padding: 38px 58px 26px;
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    width: 100%;
+    pointer-events: auto;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #7997b0;
+    border-radius: 0;
+    outline: 0;
+
+    .modal-header {
+      display: -ms-flexbox;
+      display: flex;
+      -ms-flex-align: start;
+      align-items: flex-start;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      border: none;
+      padding: 0;
+
+      .modal-title {
+        margin-bottom: 0;
+        color: #46454f;
+        font-family: HK Grotesk, sans-serif;
+        font-size: 25px;
+        line-height: 1.5;
+      }
+
+      .close {
+        padding: 5px;
+        position: absolute;
+        top: 13px;
+        right: 17px;
+        z-index: 100;
+        background-color: rgba(0, 0, 0, 0);
+        border: 0;
+        -webkit-appearance: none;
+        outline: 0;
+        cursor: pointer;
+        span {
+          font-size: 36px;
+        }
+      }
+    }
+    .modal-body {
+      padding: 12px 0 26px;
+      .modal-subtitle {
+        color: #46464e;
+        font-size: 18px;
+        margin-bottom: 25px;
+      }
+      p {
+        color: #464550;
+        font-family: HK Grotesk, sans-serif;
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 28px;
+        margin-top: 0;
+      }
+    }
+    .modal-footer {
+      border: none;
+      flex-wrap: unset;
+      padding: 0;
+    }
+  }
+}
+/* modal style END */
+
+/* react calendar style START */
+
 .react-calendar {
   background: #fff;
   border: 1px solid #5eaaf7;
@@ -280,6 +358,8 @@ body {
     }
   }
 }
+
+/* react calendar style END */
 
 /* Custom Scroll Style START */
 .custom-scroll::-webkit-scrollbar,

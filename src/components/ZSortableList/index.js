@@ -1,61 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { ReactSortable } from 'react-sortablejs'
-import moment from 'moment'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import ZSortableListItem from './item'
-import './index.scss'
 import ZButton from '../ZButton'
+import './index.scss'
 
 /**
  * @component
- * @param {bool}    loading
- * @param {object}  style
+ * @param {array}     list
+ * @param {function}  onChange
+ * @param {function}  onAdd
+ * @param {function}  onEdit
+ * @param {function}  onDelete
+ * @param {function}  onSelect
  *
  * @version 0.0.1
  */
 
-const defs = { chosen: false, filtered: false, selected: false }
-
-/** Generates uniquie id's for each item when generated */
-export const threes = [
-  { id: 0, name: 'shrek', ...defs },
-  { id: 1, name: 'fiona', ...defs },
-  { id: 2, name: 'donkey', ...defs, selected: true, filtered: true },
-  { id: 3, name: 'Lord Faarquad', ...defs },
-]
-
-const expr = [
-  {
-    id: 1,
-    position: 'Software Developer',
-    company: 'Acme Brick',
-    jobcity: 'San Ardo',
-    jobstate: 'CA',
-    startDate: moment('2016-12-25').format(),
-    endDate: moment('2019-12-25').format(),
-    currentJob: true,
-    description:
-      'Partnered with team members, including <span class="ttc_token" style="color:#0000ff">[Job title]</span>s and <span class="ttc_token" style="color:#0000ff">[Job title]</span>s to minimize project delays.',
-  },
-  {
-    id: 2,
-    position: 'Customer Service Cashier',
-    company: 'Lets Corp',
-    jobcity: '',
-    jobstate: '',
-    startDate: moment('2012-12-25').format(),
-    endDate: moment('2013-12-25').format(),
-    currentJob: false,
-    // description:
-    // '<ul><li>Collaborated with IT team and other support staff to develop new applications.</li><li>Collaborated with IT team and other support staff to develop new applications.</li></ul>',
-  },
-]
-
-const ZSortableList = ({ loading, style }) => {
-  const [list, setList] = useState(expr)
-
+const ZSortableList = ({ list = [], onChange, onAdd, onEdit, onDelete, onSelect }) => {
   return (
     <section className='sortable-list'>
       <ReactSortable
@@ -63,13 +27,20 @@ const ZSortableList = ({ loading, style }) => {
         handle='.dragHandle'
         animation={150}
         list={list}
-        setList={() => console.log('setList')}
+        setList={onChange}
       >
         {list.map((item, index) => (
-          <ZSortableListItem key={item.id} item={item} index={index} />
+          <ZSortableListItem
+            key={item.id}
+            item={item}
+            index={index}
+            onSelect={() => onSelect(index)}
+            onEdit={() => onEdit(index)}
+            onDelete={() => onDelete(index)}
+          />
         ))}
       </ReactSortable>
-      <ZButton className='btn-block-add' block>
+      <ZButton className='btn-block-add' block onClick={onAdd}>
         <FontAwesomeIcon icon={faPlusCircle} />
         &nbsp; ADD ANOTHER POSITION
       </ZButton>
@@ -78,8 +49,12 @@ const ZSortableList = ({ loading, style }) => {
 }
 
 ZSortableList.propTypes = {
-  loading: PropTypes.bool,
-  style: PropTypes.object,
+  list: PropTypes.array,
+  onChange: PropTypes.func,
+  onAdd: PropTypes.func,
+  onEdit: PropTypes.func,
+  onDelete: PropTypes.func,
+  onSelect: PropTypes.func,
 }
 
 export default ZSortableList

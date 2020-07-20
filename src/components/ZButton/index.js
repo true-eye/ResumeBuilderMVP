@@ -13,6 +13,7 @@ import './index.scss'
  * @param {bool}        disabled
  * @param {string}      className
  * @param {bool}        block
+ * @param {object}       style
  *
  * @version 0.0.1
  */
@@ -25,6 +26,7 @@ const ZButton = ({
   loading = false,
   disabled = false,
   block = false,
+  style = {},
 }) => {
   const btnClass = classnames(
     'z-btn',
@@ -43,6 +45,7 @@ const ZButton = ({
       onClick={e => {
         if (onClick) onClick(e)
       }}
+      style={style}
     >
       {children}&nbsp;
       {loading && (
@@ -63,6 +66,7 @@ ZButton.propTypes = {
   disabled: PropTypes.bool,
   className: PropTypes.string,
   block: PropTypes.bool,
+  style: PropTypes.object,
 }
 
 export default ZButton

@@ -18,6 +18,7 @@ import './WhatDidYouDoPage.scss'
  * @param {number}    current (index of the selected expr)
  * @param {function}  onNext
  * @param {function}  onBack
+ * @param {string}    initialValue
  *
  * show preview with updated experience
  *
@@ -83,11 +84,13 @@ PageTitle.propTypes = {
   experience: PropTypes.object,
 }
 
-const WhatDidYouDoPage = ({ info, current, onNext, onBack }) => {
+const WhatDidYouDoPage = ({ info, current, onNext, onBack, initialValue }) => {
   const experience = info.expr[current] || {}
   const [currentJobTitleIndex, setCurrentJobTitleIndex] = useState(0)
   const [search, setSearch] = useState('')
-  const [editorState, setEditorState] = useState(() => EditorState.createEmpty())
+  const [editorState, setEditorState] = useState(
+    EditorState.createWithContent(ContentState.createFromBlockArray(convertFromHTML(initialValue))),
+  )
 
   const currentContent = editorState.getCurrentContent()
   const rawContentState = convertToRaw(currentContent)
@@ -149,8 +152,10 @@ const WhatDidYouDoPage = ({ info, current, onNext, onBack }) => {
         onSelect={setCurrentJobTitleIndex}
       />
       <ZButtonGroupFooter>
-        <ZButton variant='default'>Back</ZButton>
-        <ZButton variant='primary' onClick={onNext}>
+        <ZButton variant='default' onClick={onBack}>
+          Back
+        </ZButton>
+        <ZButton variant='primary' onClick={() => onNext(markup)}>
           NEXT
         </ZButton>
       </ZButtonGroupFooter>
@@ -163,6 +168,7 @@ WhatDidYouDoPage.propTypes = {
   current: PropTypes.number,
   onNext: PropTypes.func,
   onBack: PropTypes.func,
+  initialValue: PropTypes.string,
 }
 
 export default WhatDidYouDoPage

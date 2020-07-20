@@ -1,9 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Container, Row, Col } from 'react-bootstrap'
-import { ZButton, ZButtonGroupFooter, ZSortableList } from 'components/themes.js'
+import { saveStepAction } from 'actions/resume'
 import TipContainer from 'containers/TipContainer'
+import { Container, Row, Col } from 'react-bootstrap'
+import { useDispatch, useSelector } from 'react-redux'
 import { TipContentExpr } from 'containers/TipContainer/Contents'
+import { ZButton, ZButtonGroupFooter, ZSortableList } from 'components/themes.js'
+import { Pages } from '../Section'
 import './SummaryPage.scss'
 
 /**
@@ -11,17 +14,41 @@ import './SummaryPage.scss'
  * @route /resume/section/expr
  * @subpage Summary Page
  *
- * @param {object}    info  (resume info)
- * @param {number}    current (index of the selected expr)
  * @param {function}  onNext
  * @param {function}  onBack
+ * @param {function}  setPage
+ * @param {function}  setCurrent
  *
  * shows all experiences as a list (draggable, addable, deletable, editable)
  *
  * @version 0.0.1
  */
 
-const SummaryPage = ({ info, current, onNext, onBack }) => {
+const SummaryPage = ({ onNext, onBack, setPage, setCurrent }) => {
+  const info = useSelector(state => state.resume.info)
+  const dispatch = useDispatch()
+
+  const onAddExpr = () => {
+    setPage(Pages.AddJob)
+  }
+
+  const onMove = newList => {
+    dispatch(saveStepAction('expr', [...newList]))
+  }
+
+  const onEditExpr = index => {
+    setCurrent(index)
+    setPage(Pages.EditJob)
+  }
+
+  const onDeleteExpr = index => {
+    dispatch(saveStepAction('expr', [...info.expr.slice(0, index), ...info.expr.slice(index + 1)]))
+
+    if (!info.expr || info.expr.length <= 1) {
+      setPage(Pages.AddJob)
+    }
+  }
+
   return (
     <Container className='section-expr section-expr-whatdidyoudo'>
       <Row className='page-title-wrap'>
@@ -35,11 +62,20 @@ const SummaryPage = ({ info, current, onNext, onBack }) => {
           </TipContainer>
         </Col>
       </Row>
-      <ZSortableList />
+      <ZSortableList
+        list={info.expr || []}
+        onChange={onMove}
+        onAdd={onAddExpr}
+        onSelect={onEditExpr}
+        onEdit={onEditExpr}
+        onDelete={onDeleteExpr}
+      />
       <ZButtonGroupFooter>
-        <ZButton variant='default'>Back</ZButton>
+        <ZButton variant='default' onClick={onBack}>
+          Back
+        </ZButton>
         <ZButton variant='primary' onClick={onNext}>
-          NEXT
+          NEXT: EDUCATION
         </ZButton>
       </ZButtonGroupFooter>
     </Container>
@@ -47,10 +83,10 @@ const SummaryPage = ({ info, current, onNext, onBack }) => {
 }
 
 SummaryPage.propTypes = {
-  info: PropTypes.object,
-  current: PropTypes.number,
   onNext: PropTypes.func,
   onBack: PropTypes.func,
+  setPage: PropTypes.func,
+  setCurrent: PropTypes.func,
 }
 
 export default SummaryPage

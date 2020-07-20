@@ -57,14 +57,17 @@
 }
 
 .modal-preview-resume {
-  .modal-header {
-    position: absolute;
-    right: 0;
-    border: none;
-    button {
-      padding: 0.5rem 1rem;
-      span {
-        font-size: 3rem;
+  .modal-content {
+    padding: 0 !important;
+    .modal-header {
+      position: absolute;
+      right: 0;
+      border: none;
+      button {
+        padding: 0.5rem 1rem;
+        span {
+          font-size: 3rem;
+        }
       }
     }
   }
