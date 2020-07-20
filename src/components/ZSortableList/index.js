@@ -15,12 +15,22 @@ import './index.scss'
  * @param {function}  onEdit
  * @param {function}  onDelete
  * @param {function}  onSelect
- * @param {element}  children
+ * @param {element}   children
+ * @param {string}    labelPlus
  *
  * @version 0.0.1
  */
 
-const ZSortableList = ({ list = [], onChange, onAdd, onEdit, onDelete, onSelect, children }) => {
+const ZSortableList = ({
+  list = [],
+  onChange,
+  onAdd,
+  onEdit,
+  onDelete,
+  onSelect,
+  children,
+  labelPlus,
+}) => {
   return (
     <section className='sortable-list'>
       <ReactSortable
@@ -45,7 +55,7 @@ const ZSortableList = ({ list = [], onChange, onAdd, onEdit, onDelete, onSelect,
       </ReactSortable>
       <ZButton className='btn-block-add' block onClick={onAdd}>
         <FontAwesomeIcon icon={faPlusCircle} />
-        &nbsp; ADD ANOTHER POSITION
+        &nbsp; {labelPlus}
       </ZButton>
     </section>
   )
@@ -59,6 +69,7 @@ ZSortableList.propTypes = {
   onDelete: PropTypes.func,
   onSelect: PropTypes.func,
   children: PropTypes.node,
+  labelPlus: PropTypes.string,
 }
 
 export default ZSortableList

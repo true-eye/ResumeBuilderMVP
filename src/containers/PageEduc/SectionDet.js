@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { saveStepAction } from 'actions/resume'
 import { AddEditPage } from './Subpages'
@@ -15,10 +15,11 @@ import './SectionDet.scss'
  * @version 0.0.1
  */
 
-const initialExpr = {
+const initialEduc = {
   school: '',
   location: '',
   degree: '',
+  cdegree: '',
   study: '',
   startDate: undefined,
   endDate: undefined,
@@ -28,35 +29,30 @@ const initialExpr = {
 
 const PageEducSectionDet = () => {
   const history = useHistory()
+  const { educId } = useParams()
   const info = useSelector(state => state.resume.info)
-  const [current, setCurrent] = useState(0) // selected educ index, another means the index of info.educ
   const dispatch = useDispatch()
 
-  const educId = null
+  const current = info.educ.findIndex(item => item.id === educId)
+  const currentEduc = current >= 0 && info.educ && info.educ[current] ? info.educ[current] : null
 
-  const currentExpr = info.expr && info.expr[current] ? info.expr[current] : null
-
-  const goBackToEducTips = () => {
-    history.push('/resume/tips/expr')
-  }
-
-  const initialValues = educId || !currentExpr ? initialExpr : currentExpr
+  const initialValues = !currentEduc ? initialEduc : currentEduc
 
   return (
     <AddEditPage
       info={info}
       initialValues={initialValues}
-      isEdit={educId !== null}
+      isEdit={current >= 0}
       current={current}
       onBack={() => {
         if (!info.expr || !info.expr.length) {
-          goBackToEducTips()
+          history.push('/resume/tips/expr')
         } else {
-          // setPage(Pages.Summary)
+          history.push('/resume/section/educ')
         }
       }}
       onNext={education => {
-        if (!educId) {
+        if (current < 0) {
           // add one education to redux educ array
           dispatch(saveStepAction('educ', [...info.educ, { ...education, id: uuidv4() }]))
           history.push('/resume/section/educ')
@@ -69,6 +65,7 @@ const PageEducSectionDet = () => {
               ...info.educ.slice(current + 1),
             ]),
           )
+          history.push('/resume/section/educ')
         }
       }}
     />

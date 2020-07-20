@@ -70,6 +70,7 @@ const SummaryPage = ({ onNext, onBack, setPage, setCurrent }) => {
         onSelect={onEditExpr}
         onEdit={onEditExpr}
         onDelete={onDeleteExpr}
+        labelPlus='ADD ANOTHER POSITION'
       >
         <ItemRendererExpr />
       </ZSortableList>

@@ -72,6 +72,7 @@ const SummaryPage = () => {
         onSelect={onEditEduc}
         onEdit={onEditEduc}
         onDelete={onDeleteEduc}
+        labelPlus='ADD ANOTHER DEGREE'
       >
         <ItemRendererEduc />
       </ZSortableList>

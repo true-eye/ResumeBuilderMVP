@@ -24,6 +24,9 @@ const Routes = () => {
           <Route path='/resume/tips/educ'>
             <PageEducTips />
           </Route>
+          <Route path='/resume/section/educ-det/:educId'>
+            <PageEducSectionDet />
+          </Route>
           <Route path='/resume/section/educ-det'>
             <PageEducSectionDet />
           </Route>

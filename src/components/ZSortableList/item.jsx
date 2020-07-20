@@ -35,7 +35,12 @@ const ZSortableListItem = ({ item, index, onEdit, onDelete, onSelect, children }
         <button onClick={onEdit}>
           <FontAwesomeIcon icon={faPencilAlt} />
         </button>
-        <button onClick={() => setShowDeleteModal(true)}>
+        <button
+          onClick={e => {
+            e.stopPropagation()
+            setShowDeleteModal(true)
+          }}
+        >
           <FontAwesomeIcon icon={faTrashAlt} />
         </button>
         <button>

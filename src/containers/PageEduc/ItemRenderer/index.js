@@ -19,47 +19,42 @@ import moment from 'moment'
  */
 
 const ItemRendererEduc = ({ item, index, onAddDescription }) => {
-  const { position, company, jobcity, jobstate, startDate, endDate, currentJob, description } = item
+  const {
+    school,
+    location,
+    degree,
+    cdegree,
+    study,
+    startDate,
+    endDate,
+    currentlyAttending,
+    description,
+  } = item
 
   const start = startDate ? moment(startDate).format('YYYY') : null
-  const end = currentJob ? 'Current' : endDate ? moment(endDate).format('YYYY') : null
+  const end = currentlyAttending ? 'Current' : endDate ? moment(endDate).format('YYYY') : null
   const emptyDates = !start && !end
-  const emptyLocation = (!jobcity || !jobcity.length) && (!jobstate || !jobstate.length)
 
-  const renderJob = (
-    <>
-      {position}
-      {position && position.length && company && company.length ? <span>,&nbsp;</span> : ''}
-      {company}
-    </>
-  )
-
-  const renderLocation = (
-    <>
-      {jobcity}
-      {jobcity && jobcity.length && jobstate && jobstate.length ? <span>,&nbsp;</span> : ''}
-      {jobstate}
-    </>
-  )
+  const len = str => (str ? str.length : 0)
 
   const renderDates = !emptyDates && (
     <>
       {start} {end && <span>-</span>} {end}
     </>
   )
+  const renderDegree = degree === 'Enter a different degree' ? cdegree : degree
 
   return (
     <>
       <div className='para-head'>
         <span className={classnames('para-count', `para-count-${index % 3}`)}>{index + 1}</span>
-        <h5 className='para-title h5'>{renderJob}</h5>
-        <p className='para-s-title'>
-          {renderLocation}
-          &nbsp;
-          {!emptyLocation && !emptyDates ? <span className='v-divider'>|</span> : ''}
-          &nbsp;
+        <h5 className='para-title h5'>
+          {renderDegree} {len(renderDegree) && len(renderDates) ? <span> - </span> : ''}{' '}
           {renderDates}
-        </p>
+        </h5>
+        {len(school) && <p className='para-s-title'>{school}</p>}
+        {len(location) && <p className='para-s-title'>{location}</p>}
+        {len(study) && <p className='para-s-title'>{study}</p>}
       </div>
       {description && description.length ? (
         <div

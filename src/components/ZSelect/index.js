@@ -91,6 +91,9 @@ const ZSelect = ({ id, label, name, formik, placeholder, disabled, options = [] 
 
   const labelClass = classnames('control-label')
 
+  const value = formik.values[name]
+  const selected = options.find(option => option.value === value)
+
   return (
     <div className={formGroupClass}>
       <label className={labelClass} htmlFor={id}>
@@ -106,7 +109,7 @@ const ZSelect = ({ id, label, name, formik, placeholder, disabled, options = [] 
         styles={customStyles}
         placeholder={placeholder}
         isSearchable={false}
-        value={formik.values[name]}
+        value={selected}
         onChange={item => {
           formik.setValues({ ...formik.values, [name]: item.value })
         }}
