@@ -1,0 +1,15 @@
+.z-rating-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 7px;
+  .rating-reset {
+    display: inline-block;
+    color: #3983fa;
+    vertical-align: middle;
+    margin-right: 3px;
+    margin-top: 2px;
+    font-size: 19px;
+    cursor: pointer;
+  }
+}

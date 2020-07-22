@@ -59,9 +59,11 @@ const ZInput = ({
 
   return (
     <div className={formGroupClass}>
-      <label className={labelClass} htmlFor={id}>
-        {label}
-      </label>
+      {label && (
+        <label className={labelClass} htmlFor={id}>
+          {label}
+        </label>
+      )}
       <span className='prefix'>{icon ? icon : ''}</span>
 
       <input

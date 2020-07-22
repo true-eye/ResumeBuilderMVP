@@ -10,6 +10,7 @@ import ZRelatedJobTitles from './ZRelatedJobTitles'
 import ZSortableList from './ZSortableList'
 import ZSelect from './ZSelect'
 import ZAutosuggest from './ZAutosuggest'
+import ZArraySkills from './ZArraySkills'
 
 export {
   ZInput,
@@ -24,4 +25,5 @@ export {
   ZSortableList,
   ZSelect,
   ZAutosuggest,
+  ZArraySkills,
 }

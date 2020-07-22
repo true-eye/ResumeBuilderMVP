@@ -19,7 +19,7 @@ const ZResumePreview = ({ info = {}, highlight }) => {
       className='document fontsize fontface vmargins hmargins pagesize skn-srz1 SRZ1  ZTY'
     >
       <div id='CONTAINER_PARENT_0' className='parentContainer'>
-        <LeftBox info={info} />
+        <LeftBox info={info} highlight={highlight} />
         <RightBox info={info} highlight={highlight} />
       </div>
     </div>

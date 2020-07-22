@@ -22,6 +22,7 @@ const initialState = {
     },
     expr: [],
     educ: [],
+    hilt: [],
   },
 }
 
@@ -31,7 +32,7 @@ function resumeReducer(state = initialState, action) {
       return initialState
 
     case RESUME.SAVE_STEP:
-      if (action.field === 'expr' || action.field === 'educ') {
+      if (action.field === 'expr' || action.field === 'educ' || action.field === 'hilt') {
         return {
           ...state,
           info: {

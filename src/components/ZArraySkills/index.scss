@@ -1,0 +1,36 @@
+.text-editor-group {
+  .text-editor-inner {
+    .add-delete-row {
+      position: relative;
+
+      .z-form-group {
+        margin-bottom: 4px;
+      }
+
+      .delete {
+        position: absolute;
+        color: #7d97ad;
+        // padding: 5px;
+        z-index: 1;
+
+        font-size: 20px;
+        right: 25px;
+        top: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .add-another {
+    position: absolute;
+    bottom: -30px;
+    right: 5px;
+    z-index: 1;
+    font-size: 14px;
+
+    &.disabled {
+      color: #6c757d;
+      cursor: default;
+    }
+  }
+}

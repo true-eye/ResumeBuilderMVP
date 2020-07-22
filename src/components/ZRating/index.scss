@@ -1,0 +1,22 @@
+.z-rating {
+  line-height: 1;
+  display: inline-block;
+  transition: none;
+
+  &-item {
+    font-size: 17px;
+    color: #666;
+    &-active {
+      color: #3983fa;
+    }
+  }
+
+  &:hover {
+    .z-rating-item {
+      color: #3983fa;
+    }
+    .z-rating-item:hover ~ .z-rating-item {
+      color: #666;
+    }
+  }
+}

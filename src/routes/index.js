@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
+import { initAction } from 'actions/resume'
 import PageHeading from 'containers/PageHeading'
 import { PageExprSection, PageExprTips } from 'containers/PageExpr'
-import { initAction } from 'actions/resume'
 import { PageEducTips, PageEducSectionDet, PageEducSection } from 'containers/PageEduc'
+import { PageHiltTips, PageHiltSection } from 'containers/PageHilt'
 import Header from 'containers/Header'
 import Footer from 'containers/Footer'
 
@@ -35,6 +36,12 @@ const Routes = () => {
           </Route>
           <Route path='/resume/section/educ'>
             <PageEducSection />
+          </Route>
+          <Route path='/resume/tips/hilt'>
+            <PageHiltTips />
+          </Route>
+          <Route path='/resume/section/hilt'>
+            <PageHiltSection />
           </Route>
           <Route path=''>
             {() => {
