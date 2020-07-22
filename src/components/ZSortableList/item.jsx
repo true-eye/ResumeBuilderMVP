@@ -28,24 +28,27 @@ const ZSortableListItem = ({ item, index, onEdit, onDelete, onSelect, children }
   const [showDeleteModal, setShowDeleteModal] = useState(false)
 
   return (
-    <div className='para-item' key={id} onClick={onSelect}>
-      {React.Children.map(children, child => React.cloneElement(child, { index, item }))}
+    <>
+      <div className='para-item' key={id} onClick={onSelect}>
+        {React.Children.map(children, child => React.cloneElement(child, { index, item }))}
 
-      <div className='para-toolbar'>
-        <button onClick={onEdit}>
-          <FontAwesomeIcon icon={faPencilAlt} />
-        </button>
-        <button
-          onClick={e => {
-            e.stopPropagation()
-            setShowDeleteModal(true)
-          }}
-        >
-          <FontAwesomeIcon icon={faTrashAlt} />
-        </button>
-        <button>
-          <FontAwesomeIcon className='dragHandle' icon={faArrowsAlt} />
-        </button>
+        <div className='para-toolbar'>
+          <button onClick={onEdit}>
+            <FontAwesomeIcon icon={faPencilAlt} />
+          </button>
+          <button
+            onClick={e => {
+              console.log('onDelete')
+              e.stopPropagation()
+              setShowDeleteModal(true)
+            }}
+          >
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </button>
+          <button>
+            <FontAwesomeIcon className='dragHandle' icon={faArrowsAlt} />
+          </button>
+        </div>
       </div>
       <Modal show={showDeleteModal} onHide={() => setShowDeleteModal(false)} centered>
         <Modal.Header closeButton>
@@ -67,7 +70,7 @@ const ZSortableListItem = ({ item, index, onEdit, onDelete, onSelect, children }
           </ZButton>
         </Modal.Footer>
       </Modal>
-    </div>
+    </>
   )
 }
 

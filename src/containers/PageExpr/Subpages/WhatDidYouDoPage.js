@@ -7,6 +7,7 @@ import { TipContentExpr } from 'containers/TipContainer/Contents'
 import EditorWrapper from 'containers/EditorWrapper'
 import { ContentState, EditorState, convertFromHTML, Modifier, convertToRaw } from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
+import { JobTitlesArray } from 'utils/constants/index'
 import './WhatDidYouDoPage.scss'
 
 /**
@@ -55,19 +56,6 @@ const examples = {
   },
 }
 
-const relatedJobTitles = [
-  'Senior Software Engineer',
-  'Associate Software Engineer',
-  'Software Test Engineer',
-  'Junior Software Engineer',
-  'Software Development Engineer',
-  'Software Quality Assurance Engineer',
-  'Software Engineer Intern',
-  'Software Engineer Trainee',
-  'Software Testing Engineer',
-  'Principal Software Engineer',
-]
-
 const PageTitle = ({ experience }) => (
   <>
     <h1 className='page-title'>
@@ -105,25 +93,8 @@ const WhatDidYouDoPage = ({ info, current, onNext, onBack, initialValue }) => {
     ],
   }
 
-  const onSelectExample = UID => {
-    const currentSelection = editorState.getSelection()
-
-    if (examples[UID]) {
-      const blocksFromHTML = convertFromHTML(`<li>${examples[UID].text}</li><li />`)
-      const insertingContentState = ContentState.createFromBlockArray(
-        blocksFromHTML.contentBlocks,
-        blocksFromHTML.entityMap,
-      )
-      const newContent = Modifier.replaceWithFragment(
-        currentContent,
-        currentSelection,
-        insertingContentState.getBlockMap(),
-      )
-
-      const newEditorState = EditorState.push(editorState, newContent, 'insert-fragment')
-      setEditorState(newEditorState)
-    }
-  }
+  const currentJobTitle = JobTitlesArray.find(job => job.title === search)
+  const relatedJobTitles = currentJobTitle ? currentJobTitle.relatedJobTitles : []
 
   return (
     <Container className='section-expr section-expr-whatdidyoudo'>
@@ -139,17 +110,25 @@ const WhatDidYouDoPage = ({ info, current, onNext, onBack, initialValue }) => {
       </Row>
       <EditorWrapper
         search={search}
+        searchFor='Developer'
+        searchList={JobTitlesArray}
+        searchPlaceholder='Ex: Cashier'
         setSearch={setSearch}
         editorState={editorState}
         setEditorState={setEditorState}
+        editorPlaceholder='Type your achievements and responsibilities here'
         examples={examples}
-        onSelectExample={onSelectExample}
+        nRecommend={2}
+        tooltip='Want to see more pre-written examples? Try searching for another title.'
       />
       <ZRelatedJobTitles
         label='More job titles like Developer'
         current={currentJobTitleIndex}
         jobTitles={relatedJobTitles}
-        onSelect={setCurrentJobTitleIndex}
+        onSelect={index => {
+          // setSearch('')
+          setCurrentJobTitleIndex(index)
+        }}
       />
       <ZButtonGroupFooter>
         <ZButton variant='default' onClick={onBack}>

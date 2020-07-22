@@ -7,20 +7,21 @@ import './index.scss'
 
 /**
  * @component
- * @param {object}     examples
+ * @param {object}    examples
  * @param {function}  onSelect
+ * @param {number}    nRecommend
  *
  * @version 0.0.1
  */
 
-const ZExamplesGroup = ({ examples, onSelect }) => {
+const ZExamplesGroup = ({ examples, onSelect, nRecommend }) => {
   return (
     <ul className='examples-group'>
       {Object.keys(examples).map((UID, index) => (
         <li
           key={UID}
           className={classnames('examples-item animate-up', {
-            'expert-recommended': index < 2,
+            'expert-recommended': index < nRecommend,
           })}
           onClick={() => onSelect(UID)}
         >
@@ -37,6 +38,7 @@ const ZExamplesGroup = ({ examples, onSelect }) => {
 ZExamplesGroup.propTypes = {
   examples: PropTypes.object,
   onSelect: PropTypes.func,
+  nRecommend: PropTypes.number,
 }
 
 export default ZExamplesGroup

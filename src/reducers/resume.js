@@ -27,6 +27,9 @@ const initialState = {
 
 function resumeReducer(state = initialState, action) {
   switch (action.type) {
+    case RESUME.INIT:
+      return initialState
+
     case RESUME.SAVE_STEP:
       if (action.field === 'expr' || action.field === 'educ') {
         return {
@@ -51,6 +54,7 @@ function resumeReducer(state = initialState, action) {
       return {
         ...state,
         completed: {
+          ...state.completed,
           [action.field]: true,
         },
       }

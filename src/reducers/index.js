@@ -6,7 +6,7 @@ import resume from './resume'
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: [],
+  whitelist: ['resume'],
 }
 
 const appReducer = asyncReducers =>

@@ -17,4 +17,4 @@ const Degrees = [
   'No Degree',
 ]
 
-export { Degrees }
+export default Degrees

@@ -9,6 +9,7 @@ import ZExamplesGroup from './ZExamplesGroup'
 import ZRelatedJobTitles from './ZRelatedJobTitles'
 import ZSortableList from './ZSortableList'
 import ZSelect from './ZSelect'
+import ZAutosuggest from './ZAutosuggest'
 
 export {
   ZInput,
@@ -22,4 +23,5 @@ export {
   ZRelatedJobTitles,
   ZSortableList,
   ZSelect,
+  ZAutosuggest,
 }

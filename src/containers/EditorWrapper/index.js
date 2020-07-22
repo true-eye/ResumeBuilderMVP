@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { ZSearch, ZLoaderNew, ZExamplesGroup } from 'components/themes.js'
-import { Editor, EditorState } from 'draft-js'
 import PropTypes from 'prop-types'
+import { ContentState, EditorState, convertFromHTML, Modifier, Editor } from 'draft-js'
 import './index.scss'
 
 /**
@@ -14,38 +14,70 @@ import './index.scss'
 const EditorWrapper = ({
   search,
   setSearch,
+  searchList,
   editorState,
   setEditorState,
   examples,
-  onSelectExample,
+  nRecommend,
+  searchFor,
+  tooltip,
+  searchPlaceholder,
+  editorPlaceholder,
 }) => {
+  const currentContent = editorState.getCurrentContent()
+
+  const onSelectExample = UID => {
+    const currentSelection = editorState.getSelection()
+
+    if (examples[UID]) {
+      const blocksFromHTML = convertFromHTML(`<li>${examples[UID].text}</li><li />`)
+      const insertingContentState = ContentState.createFromBlockArray(
+        blocksFromHTML.contentBlocks,
+        blocksFromHTML.entityMap,
+      )
+      const newContent = Modifier.replaceWithFragment(
+        currentContent,
+        currentSelection,
+        insertingContentState.getBlockMap(),
+      )
+
+      const newEditorState = EditorState.push(editorState, newContent, 'insert-fragment')
+      setEditorState(newEditorState)
+    }
+  }
+
   return (
     <div className='editor-wrapper'>
       <section className='editor-section ' id='draftJsEditor'>
         <Editor
           editorState={editorState}
           onChange={setEditorState}
-          placeholder='Type your achievements and responsibilities here'
+          placeholder={editorPlaceholder}
           spellCheck
+          nRecommend={nRecommend}
         />
       </section>
 
       <section className='examples-wrapper'>
         <header className='header-examples'>
-          <ZSearch
-            value={search}
-            maxLength={35}
-            label={
-              <>
-                Showing results for <span className='keyword'>Developer</span>
-              </>
-            }
-            id='positionSearchBox'
-            name='positionSearchBox'
-            placeholder='Ex: Cashier'
-            onChange={(e, { newValue }) => setSearch(newValue)}
-            tooltip='Want to see more pre-written examples? Try searching for another title.'
-          />
+          {search !== undefined && (
+            <ZSearch
+              value={search}
+              maxLength={35}
+              label={
+                <>
+                  Showing results for <span className='keyword'>{searchFor}</span>
+                </>
+              }
+              id='positionSearchBox'
+              name='positionSearchBox'
+              placeholder={searchPlaceholder}
+              onChange={(e, { newValue }) => setSearch(newValue)}
+              tooltip={tooltip}
+              list={searchList}
+              field='title'
+            />
+          )}
         </header>
         <section className='body-examples custom-scroll'>
           <ZExamplesGroup examples={examples} onSelect={onSelectExample} />
@@ -59,6 +91,15 @@ const EditorWrapper = ({
 EditorWrapper.propTypes = {
   search: PropTypes.string,
   setSearch: PropTypes.func,
+  editorState: PropTypes.object,
+  setEditorState: PropTypes.func,
+  examples: PropTypes.object,
+  nRecommend: PropTypes.number,
+  searchFor: PropTypes.string,
+  tooltip: PropTypes.string,
+  searchPlaceholder: PropTypes.string,
+  editorPlaceholder: PropTypes.string,
+  searchList: PropTypes.array,
 }
 
 export default EditorWrapper

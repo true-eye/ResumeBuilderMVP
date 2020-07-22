@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
-import { saveStepAction } from 'actions/resume'
+import { completeStepAction, saveStepAction } from 'actions/resume'
 import TipContainer from 'containers/TipContainer'
 import { Container, Row, Col } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -37,14 +37,16 @@ const SummaryPage = () => {
   }
 
   const onDeleteEduc = index => {
+    const length = !info.educ ? 0 : info.educ.length
     dispatch(saveStepAction('educ', [...info.educ.slice(0, index), ...info.educ.slice(index + 1)]))
 
-    if (!info.educ || info.educ.length <= 1) {
+    if (!info.educ || length <= 1) {
       history.push('/resume/section/educ-det')
     }
   }
 
   const onNext = () => {
+    dispatch(completeStepAction('educ'))
     history.push('/resume/tips/hilt')
   }
 

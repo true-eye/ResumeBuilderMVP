@@ -6,6 +6,7 @@ import SectionEduc from './SectionEduc'
 
 const RightBox = ({ info = {}, highlight }) => {
   const expr = info.expr
+  const educ = info.educ
 
   return (
     <div id='CONTAINER_1' className='right-box'>
@@ -28,7 +29,7 @@ const RightBox = ({ info = {}, highlight }) => {
         className='sortable-item section-container SortableItem-sibling  data-EDUC'
       >
         <div className='document-tool sec-tool' id='editIcons'></div>
-        <SectionEduc highlight={highlight === 'educ'} />
+        <SectionEduc educ={educ} highlight={highlight === 'educ'} />
       </div>
     </div>
   )

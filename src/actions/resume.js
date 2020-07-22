@@ -10,3 +10,5 @@ export const completeStepAction = field => ({
   type: RESUME.COMPLETE_STEP,
   field,
 })
+
+export const initAction = () => ({ type: RESUME.INIT })

@@ -45,8 +45,8 @@ const PageEducSectionDet = () => {
       isEdit={current >= 0}
       current={current}
       onBack={() => {
-        if (!info.expr || !info.expr.length) {
-          history.push('/resume/tips/expr')
+        if (!info.educ || !info.educ.length) {
+          history.push('/resume/tips/educ')
         } else {
           history.push('/resume/section/educ')
         }

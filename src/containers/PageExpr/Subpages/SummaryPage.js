@@ -43,9 +43,10 @@ const SummaryPage = ({ onNext, onBack, setPage, setCurrent }) => {
   }
 
   const onDeleteExpr = index => {
+    const length = !info.expr ? 0 : info.expr.length
     dispatch(saveStepAction('expr', [...info.expr.slice(0, index), ...info.expr.slice(index + 1)]))
 
-    if (!info.expr || info.expr.length <= 1) {
+    if (!info.expr || length <= 1) {
       setPage(Pages.AddJob)
     }
   }

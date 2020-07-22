@@ -1,7 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col, Form } from 'react-bootstrap'
-import { ZInput, ZMonthPicker, ZCheckbox } from 'components/themes.js'
+import { ZInput, ZMonthPicker, ZCheckbox, ZAutosuggest } from 'components/themes.js'
+import { JobTitlesArray } from 'utils/constants/index'
 
 /**
  * @form
@@ -16,12 +17,14 @@ const AboutJobForm = ({ formik }) => {
     <Form noValidate>
       <Row>
         <Col sm={6} className='col-jobtitle'>
-          <ZInput
+          <ZAutosuggest
             formik={formik}
             id='position'
             name='position'
             label='Job Title'
             placeholder='e.g. Customer Service Representative'
+            field='title'
+            list={JobTitlesArray}
           />
         </Col>
         <Col sm={6} className='col-company'>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { saveStepAction } from 'actions/resume'
+import { completeStepAction, saveStepAction } from 'actions/resume'
 import { AddEditPage, WhatDidYouDoPage, SummaryPage } from './Subpages'
 import { v4 as uuidv4 } from 'uuid'
 import './Section.scss'
@@ -42,8 +42,6 @@ const PageExprSection = () => {
   const dispatch = useDispatch()
 
   const currentExpr = info.expr && info.expr[current] ? info.expr[current] : null
-
-  console.log(info)
 
   const goBackToExprTips = () => {
     history.push('/resume/tips/expr')
@@ -114,7 +112,10 @@ const PageExprSection = () => {
       setPage={setPage}
       setCurrent={setCurrent}
       onBack={() => goBackToExprTips()}
-      onNext={() => history.push('/resume/tips/educ')}
+      onNext={() => {
+        dispatch(completeStepAction('expr'))
+        history.push('/resume/tips/educ')
+      }}
     />
   )
 }

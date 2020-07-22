@@ -26,6 +26,8 @@ const ItemRendererEduc = ({ item, index, onAddDescription }) => {
   const emptyDates = !start && !end
   const emptyLocation = (!jobcity || !jobcity.length) && (!jobstate || !jobstate.length)
 
+  console.log(item)
+
   const renderJob = (
     <>
       {position}

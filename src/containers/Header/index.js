@@ -20,9 +20,7 @@ import './index.scss'
  */
 
 const Header = () => {
-  const history = useHistory()
   const location = useLocation()
-  const dispatch = useDispatch()
 
   const completed = useSelector(state => state.resume.completed)
 
@@ -59,9 +57,12 @@ const Header = () => {
     { index: 5, id: 'fnlz', label: 'Finalize', href: 'section/fnlz', paths: [] },
   ]
 
-  const foundIndex = steps.findIndex(
-    step => step.paths.findIndex(path => `/resume/${path}` === location.pathname) >= 0,
-  )
+  const foundIndex =
+    location.pathname === '/'
+      ? 0
+      : steps.findIndex(
+          step => step.paths.findIndex(path => location.pathname.includes(`/resume/${path}`)) >= 0,
+        )
 
   const currentIndex = foundIndex < 0 ? 5 : foundIndex
 

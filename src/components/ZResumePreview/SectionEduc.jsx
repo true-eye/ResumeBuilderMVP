@@ -1,8 +1,101 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
+import moment from 'moment'
 
-const SectionEduc = ({ highlight }) => {
+const EducItem = ({ item }) => {
+  const {
+    id,
+    school,
+    location,
+    degree,
+    cdegree,
+    study,
+    startDate,
+    endDate,
+    currentlyAttending,
+    description,
+  } = item
+
+  const start = startDate ? moment(startDate).format('YYYY-MM') : null
+  const end = currentlyAttending ? 'Current' : endDate ? moment(endDate).format('YYYY-MM') : null
+  const idegree = degree === 'Enter a different degree' ? cdegree : degree
+  const emptyDates = !start && !end
+
+  const renderDates = !emptyDates && (
+    <div className='paddedline date-content'>
+      <span className='jobdates' id='FIELD_JSTD'>
+        {start}
+      </span>
+      <span> - </span>
+      <span className='jobdates' id='FIELD_EDDT'>
+        {end}
+      </span>
+      <br />
+    </div>
+  )
+  const ln = str => (str && str.length ? true : false)
+
+  const renderDegree =
+    ln(idegree) || ln(study) ? (
+      <span className='paddedline degreeGap txtBold' dependency='DGRE|STUY'>
+        <span className='degree' id='FIELD_DGRE'>
+          {idegree}
+        </span>
+        {ln(idegree) && ln(study) ? <span dependency='DGRE+STUY'>: </span> : ''}
+        <span className='programline' id='FIELD_STUY'>
+          {study}
+        </span>
+      </span>
+    ) : (
+      ''
+    )
+
+  const renderLocation =
+    ln(school) || ln(location) ? (
+      <div className='paddedline txtItl' dependency='SCIT|SSTA|SCHO'>
+        <span className='companyname' id='FIELD_SCHO'>
+          {school}
+        </span>
+        {ln(school) && ln(location) ? <span dependency='SCHO+SSTA|SCIT'> - </span> : ''}
+        <span className='joblocation jobcity' id='FIELD_SCIT'>
+          {location}
+        </span>
+      </div>
+    ) : (
+      ''
+    )
+
+  return (
+    <div
+      id='PARAGRAPH_EXPR_0'
+      className='paragraph datespara PARAGRAPH_EXPR firstparagraph placeholder-text '
+    >
+      <div className='clearfix doc-item'>
+        <div className='paddedline date-content hidedates' dependency='JSTD|EDDT'>
+          <span className='jobdates' dependency='JSTD'>
+            2007-03
+          </span>
+          <span dependency='JSTD+EDDT'> - </span>
+          <span className='jobdates' dependency='EDDT'>
+            2007-03
+          </span>
+          <br dependency='JTIT|COMP|JSTA|JCIT' />
+        </div>
+        <div className='singlecolumn'>
+          {renderDates}
+          {renderDegree}
+          {renderLocation}
+          <span className='field' id='FIELD_FRFM'>
+            <div dangerouslySetInnerHTML={{ __html: description }} />
+          </span>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const SectionEduc = ({ highlight, educ = [] }) => {
   return (
     <div
       id='SECTION_EDUC9865a64b-ff0f-4eab-941d-1918ff23910b'
@@ -19,43 +112,9 @@ const SectionEduc = ({ highlight }) => {
         </div>
         <div className=''>
           <div className=''>
-            <div
-              id='PARAGRAPH_EDUC_0'
-              className='paragraph datespara PARAGRAPH_EDUC firstparagraph placeholder-text '
-            >
-              <div className='clearfix doc-item'>
-                <div className='singlecolumn'>
-                  <div className='paddedline date-content'>
-                    <span className='jobdates' id='FIELD_GRST' format='%Y-%m'></span>
-                    <span className='jobdates' id='FIELD_GRED' format='%Y-%m'></span>
-                  </div>
-                  <span className='paddedline degreeGap txtBold' dependency='DGRE|STUY'>
-                    <span className='degree' id='FIELD_DGRE'>
-                      Bachelor of Arts
-                    </span>
-                    <span dependency='DGRE+STUY'>: </span>
-                    <span className='programline' id='FIELD_STUY'>
-                      Business Administration
-                    </span>
-                  </span>
-                  <div className='paddedline txtItl' dependency='SCIT|SSTA|SCHO'>
-                    <span className='companyname' id='FIELD_SCHO'>
-                      San Francisco State University
-                    </span>
-                    <span dependency='SCHO+SSTA|SCIT'> - </span>
-                    <span className='joblocation jobcity' id='FIELD_SCIT'>
-                      San Francisco
-                    </span>
-                    <span dependency='SCIT+SSTA'>, </span>
-                    <span className='joblocation jobstate' id='FIELD_SSTA'>
-                      CA
-                    </span>
-                  </div>
-
-                  <span className='field' id='FIELD_FRFM'></span>
-                </div>
-              </div>
-            </div>
+            {educ.map((item, index) => (
+              <EducItem item={item} key={index} />
+            ))}
           </div>
         </div>
       </div>
@@ -65,6 +124,7 @@ const SectionEduc = ({ highlight }) => {
 
 SectionEduc.propTypes = {
   highlight: PropTypes.bool,
+  educ: PropTypes.array,
 }
 
 export default SectionEduc

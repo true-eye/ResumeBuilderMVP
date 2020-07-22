@@ -1,12 +1,15 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import { Route, Switch, Redirect, BrowserRouter as Router } from 'react-router-dom'
 import PageHeading from 'containers/PageHeading'
 import { PageExprSection, PageExprTips } from 'containers/PageExpr'
+import { initAction } from 'actions/resume'
 import { PageEducTips, PageEducSectionDet, PageEducSection } from 'containers/PageEduc'
 import Header from 'containers/Header'
 import Footer from 'containers/Footer'
 
 const Routes = () => {
+  const dispatch = useDispatch()
   return (
     <Router>
       <div className='page-wrap'>
@@ -32,6 +35,12 @@ const Routes = () => {
           </Route>
           <Route path='/resume/section/educ'>
             <PageEducSection />
+          </Route>
+          <Route path=''>
+            {() => {
+              dispatch(initAction())
+              return <PageHeading />
+            }}
           </Route>
           <Route render={() => <Redirect to='/resume/section/cntc' />} />
         </Switch>

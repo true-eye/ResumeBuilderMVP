@@ -402,6 +402,49 @@ body {
     }
   }
 
+  .react-autosuggest__suggestions-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9;
+    overflow: auto;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 5px rgba(88, 88, 95, 0.2);
+    height: inherit;
+    font-size: 13px;
+
+    &--open {
+      top: calc(100% + 5px);
+      border-radius: 3px;
+      border: 1px solid #767676;
+      box-shadow: none;
+      max-height: 342px;
+
+      ul {
+        font-size: 12px;
+        font-family: 'Tahoma', sans-serif;
+        li {
+          line-height: 23px;
+          cursor: pointer;
+          border-top: 0;
+          padding-left: 1.5rem;
+          padding-top: 0.5rem;
+          padding-right: 1.5rem;
+          padding-bottom: 0.5rem;
+
+          color: #58585f;
+          text-transform: capitalize;
+
+          &:hover {
+            background: #f6f8fa;
+            color: #333;
+          }
+        }
+      }
+    }
+  }
+
   .z-input-invalid-icon,
   .z-input-valid-icon {
     position: absolute;

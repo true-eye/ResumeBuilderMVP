@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Row, Col, Form } from 'react-bootstrap'
-import { ZInput, ZMonthPicker, ZCheckbox, ZSelect } from 'components/themes.js'
-import { Degrees } from 'utils/constants'
+import { ZInput, ZMonthPicker, ZCheckbox, ZSelect, ZAutosuggest } from 'components/themes.js'
+import { Degrees, FieldOfStudiesArray } from 'utils/constants/index'
 
 /**
  * @form
@@ -45,15 +45,28 @@ const AboutDegreeForm = ({ formik }) => {
             options={Degrees.map(deg => ({ label: deg, value: deg }))}
           />
         </Col>
+        <Col sm={6} className='pl-0'>
+          {formik.values.degree === 'Enter a different degree' && (
+            <ZInput
+              formik={formik}
+              id='cdegree'
+              name='cdegree'
+              label='Enter a different degree'
+              placeholder={`e.g. Bachelor's`}
+            />
+          )}
+        </Col>
       </Row>
       <Row>
         <Col sm={6}>
-          <ZInput
+          <ZAutosuggest
             formik={formik}
             id='study'
             name='study'
             label='Field of Study'
             placeholder='e.g. Accountant'
+            field='title'
+            list={FieldOfStudiesArray}
           />
         </Col>
         <Col sm={6}>

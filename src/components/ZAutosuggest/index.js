@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import Autosuggest from 'react-autosuggest'
-import ZTooltip from '../ZTooltip'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
 import './index.scss'
 
 /**
@@ -31,21 +30,30 @@ const getSuggestions = (list, field, value) => {
     : list.filter(lang => lang[field].toLowerCase().slice(0, inputLength) === inputValue)
 }
 
-const ZSearch = ({
+const ZAutosuggest = ({
   id,
   className,
   label,
   name,
   placeholder,
   maxLength,
-  value,
-  onChange,
-  tooltip,
+  formik,
   list = [],
   field = 'title',
 }) => {
   const [suggestions, setSuggestions] = useState([])
-  const formGroupClass = classnames('z-search', className)
+
+  const [isFocused, setIsFocused] = useState(false)
+  const isFilled = formik.values[name] && formik.values[name].length
+  const isValid = !formik.errors[name]
+  const isInvalid = formik.touched[name] && formik.errors[name]
+
+  const formGroupClass = classnames('z-form-group', className, {
+    'is-focus': isFocused,
+    'is-filled': isFilled,
+    'is-valid': isValid,
+    'is-invalid': isInvalid,
+  })
 
   return (
     <div className={formGroupClass}>
@@ -61,33 +69,53 @@ const ZSearch = ({
         onSuggestionsClearRequested={() => setSuggestions([])}
         getSuggestionValue={suggestion => suggestion[field]}
         renderSuggestion={suggestion => <span>{suggestion[field]}</span>}
+        onSuggestionSelected={e =>
+          formik.setValues({ ...formik.values, [name]: e.target.textContent })
+        }
         inputProps={{
           name,
-          value,
-          onChange,
+          value: formik.values[name],
+          onChange: e => {
+            formik.handleChange(e)
+          },
+          onFocus: () => {
+            setIsFocused(true)
+          },
+          onBlur: e => {
+            setIsFocused(false)
+            formik.handleBlur(e)
+          },
           maxLength,
           placeholder,
           className: 'form-control',
         }}
       />
-      <FontAwesomeIcon icon={faSearch} />
-      <ZTooltip className='search-tool-tip'>{tooltip}</ZTooltip>
+      {!isFocused ? (
+        isInvalid ? (
+          <FontAwesomeIcon className='z-input-invalid-icon' icon={faTimes} color='#d0021b' />
+        ) : (
+          isFilled && (
+            <FontAwesomeIcon className='z-input-valid-icon' icon={faCheck} color='#15ac31' />
+          )
+        )
+      ) : (
+        ''
+      )}
     </div>
   )
 }
 
-ZSearch.propTypes = {
+ZAutosuggest.propTypes = {
   className: PropTypes.string,
   label: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   id: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
-  value: PropTypes.string,
-  onChange: PropTypes.func,
   tooltip: PropTypes.string,
   list: PropTypes.array,
   field: PropTypes.string,
+  formik: PropTypes.object,
 }
 
-export default ZSearch
+export default ZAutosuggest
