@@ -18,7 +18,7 @@ import './index.scss'
 const ZRatingContainer = ({ value, onChange }) => {
   return (
     <div className='z-rating-container'>
-      <FontAwesomeIcon className='rating-reset' icon={faMinusCircle} />
+      <FontAwesomeIcon className='rating-reset' icon={faMinusCircle} onClick={() => onChange(0)} />
       <ZRating value={value} onChange={onChange} />
     </div>
   )

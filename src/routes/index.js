@@ -43,7 +43,10 @@ const Routes = () => {
           <Route path='/resume/section/hilt'>
             <PageHiltSection />
           </Route>
-          <Route path=''>
+          <Route path='/resume/tips/summ'>
+            <PageHiltTips />
+          </Route>
+          <Route exact path='/'>
             {() => {
               dispatch(initAction())
               return <PageHeading />

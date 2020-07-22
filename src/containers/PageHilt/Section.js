@@ -28,7 +28,11 @@ import './Section.scss'
  * @version 0.0.1
  */
 
-const schema = yup.object({})
+const schema = yup.object({
+  skills: yup
+    .array()
+    .of(yup.object({ title: yup.string().required('Please type here or remove') })),
+})
 
 const PageHiltSection = () => {
   const [search, setSearch] = useState('')
@@ -42,23 +46,33 @@ const PageHiltSection = () => {
   }
 
   const formik = useFormik({
-    initialValues: info.cntc,
+    initialValues: {
+      skills: info.hilt,
+    },
     validationSchema: schema,
     onSubmit: (values, actions) => {
       console.log('onSubmit', values)
 
-      // dispatch(completeStepAction('hilt'))
-      // history.push('/resume/tips/summ')
+      dispatch(completeStepAction('hilt'))
+      history.push('/resume/tips/summ')
     },
   })
 
   const onNext = e => {
     formik.handleSubmit()
   }
-  console.log(info)
 
-  const onSelectExample = value => {
-    console.log(value)
+  const onSelectExample = UID => {
+    const skills = formik.values ? formik.values.skills : []
+    const lastSkill = skills.length >= 0 ? skills[skills.length - 1] : {}
+
+    if (!skills.length || lastSkill.title.length) {
+      formik.setValues({ skills: [...skills, { score: 0, title: Skills[UID].text }] })
+    } else {
+      formik.setValues({
+        skills: [...skills.slice(0, skills.length - 1), { ...lastSkill, title: Skills[UID].text }],
+      })
+    }
   }
 
   const currentJobTitle = JobTitlesArray.find(job => job.title === search)
@@ -82,7 +96,7 @@ const PageHiltSection = () => {
       <Row>
         <Col md={{ span: '6', order: 1 }} xs={{ span: 12, order: 2 }}>
           <Form noValidate>
-            <ZArraySkills formik={formik} />
+            <ZArraySkills formik={formik} field='skills' />
           </Form>
         </Col>
         <Col md={{ span: '6', order: 2 }} xs={{ span: 12, order: 1 }}>
@@ -112,7 +126,7 @@ const PageHiltSection = () => {
           Back
         </ZButton>
         <ZButton variant='primary' onClick={onNext}>
-          NEXT: SKILLS
+          NEXT: SUMMARY
         </ZButton>
       </ZButtonGroupFooter>
     </Container>

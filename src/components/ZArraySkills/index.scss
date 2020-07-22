@@ -8,6 +8,10 @@
 
       .z-form-group {
         margin-bottom: 4px;
+        .z-input-invalid-icon,
+        .z-input-valid-icon {
+          top: 12px;
+        }
       }
 
       .delete {
@@ -22,6 +26,15 @@
         cursor: pointer;
       }
     }
+  }
+
+  .add {
+    color: #3a96f0;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    font-size: 14px;
+    cursor: pointer;
   }
 
   .add-another {

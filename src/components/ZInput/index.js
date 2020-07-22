@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCheck, faTimes } from '@fortawesome/free-solid-svg-icons'
+import _ from 'lodash'
 import './index.scss'
 
 /**
@@ -43,9 +44,9 @@ const ZInput = ({
   disabled,
 }) => {
   const [isFocused, setIsFocused] = useState(false)
-  const isFilled = formik.values[name] && formik.values[name].length
-  const isValid = !formik.errors[name]
-  const isInvalid = formik.touched[name] && formik.errors[name]
+  const isFilled = _.get(formik.values, name) && _.get(formik.values, name).length
+  const isValid = !_.get(formik.errors, name)
+  const isInvalid = _.get(formik.touched, name) && _.get(formik.errors, name)
 
   const formGroupClass = classnames('z-form-group', className, {
     'is-focus': isFocused,
@@ -73,7 +74,7 @@ const ZInput = ({
         maxLength={maxLength}
         className='form-control'
         placeholder={placeholder}
-        value={preventChange ? formattedValue : formik.values[name]}
+        value={preventChange ? formattedValue : _.get(formik.values, name)}
         onChange={preventChange ? () => {} : formik.handleChange}
         onFocus={() => {
           setIsFocused(true)
@@ -98,7 +99,7 @@ const ZInput = ({
       ) : (
         ''
       )}
-      <label className='invalid-feedback'>{formik.errors[name]}</label>
+      <label className='invalid-feedback'>{_.get(formik.errors, name)}</label>
     </div>
   )
 }

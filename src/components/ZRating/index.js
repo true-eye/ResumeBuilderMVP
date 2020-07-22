@@ -24,6 +24,7 @@ const ZRating = ({ value, onChange }) => {
         className={classnames('z-rating-item', { 'z-rating-item-active': i <= value })}
         icon={faStar}
         key={i}
+        onClick={() => onChange(i)}
       />,
     )
   }
