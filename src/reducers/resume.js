@@ -23,6 +23,7 @@ const initialState = {
     expr: [],
     educ: [],
     hilt: [],
+    summ: '',
   },
 }
 

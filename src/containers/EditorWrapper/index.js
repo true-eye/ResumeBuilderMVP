@@ -54,7 +54,6 @@ const EditorWrapper = ({
           onChange={setEditorState}
           placeholder={editorPlaceholder}
           spellCheck
-          nRecommend={nRecommend}
         />
       </section>
       <ZExamplesWrapper
@@ -66,6 +65,7 @@ const EditorWrapper = ({
         searchList={searchList}
         examples={examples}
         onSelectExample={onSelectExample}
+        nRecommend={nRecommend}
       />
     </div>
   )

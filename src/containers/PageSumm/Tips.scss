@@ -1,0 +1,38 @@
+.tips-summ {
+  padding-top: 4vh;
+  .page-title {
+    color: #1d7cdc;
+    font-size: 35px;
+    font-weight: 300;
+    margin-bottom: 15px;
+    margin-top: 22px;
+  }
+
+  .tips {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      font-size: 18px;
+      line-height: 28px;
+      list-style: none;
+      margin: 0 0 1px;
+      padding: 0;
+      position: relative;
+
+      &:first-child {
+        font-weight: 600;
+      }
+    }
+  }
+
+  &-resume-thumbnail {
+    margin-top: 20px;
+  }
+
+  @media (min-width: 992px) {
+    .page-title {
+      margin-top: 82px;
+    }
+  }
+}

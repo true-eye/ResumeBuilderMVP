@@ -1,11 +1,14 @@
 import React from 'react'
+import classnames from 'classnames'
 import PropTypes from 'prop-types'
 
-const SectionSummary = () => {
+const SectionSummary = ({ highlight = false }) => {
   return (
     <div
       id='SECTION_SUMMa97a3f24-952d-4baf-adf5-6bc5359c9f77'
-      className='section summary notdraggable SECTION_SUMM  noparagraph '
+      className={classnames('section', 'summary', 'SECTION_SUMM', 'noparagraph', 'notdraggable', {
+        'preview-template-highlighter': highlight,
+      })}
       data-section-cd='SUMM'
     >
       <div className=' doc-item'>
@@ -31,6 +34,8 @@ const SectionSummary = () => {
   )
 }
 
-SectionSummary.propTypes = {}
+SectionSummary.propTypes = {
+  highlight: PropTypes.bool,
+}
 
 export default SectionSummary

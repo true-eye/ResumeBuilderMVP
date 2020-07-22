@@ -5,7 +5,7 @@ import { ZButton, ZButtonGroupFooter, ZRelatedJobTitles } from 'components/theme
 import TipContainer from 'containers/TipContainer'
 import { TipContentExpr } from 'containers/TipContainer/Contents'
 import EditorWrapper from 'containers/EditorWrapper'
-import { ContentState, EditorState, convertFromHTML, Modifier, convertToRaw } from 'draft-js'
+import { ContentState, EditorState, convertFromHTML, convertToRaw } from 'draft-js'
 import draftToHtml from 'draftjs-to-html'
 import { JobTitlesArray } from 'utils/constants/index'
 import './WhatDidYouDoPage.scss'

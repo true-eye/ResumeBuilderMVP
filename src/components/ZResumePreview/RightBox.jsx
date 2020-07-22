@@ -15,7 +15,7 @@ const RightBox = ({ info = {}, highlight }) => {
         className='sortable-item section-container SortableItem-sibling  data-SUMM'
       >
         <div className='document-tool sec-tool' id='editIcons'></div>
-        <SectionSummary />
+        <SectionSummary highlight={highlight === 'summ'} />
       </div>
       <div
         data-react-beautiful-dnd-draggable='1'

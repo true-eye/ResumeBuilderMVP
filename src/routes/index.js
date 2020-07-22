@@ -6,6 +6,8 @@ import PageHeading from 'containers/PageHeading'
 import { PageExprSection, PageExprTips } from 'containers/PageExpr'
 import { PageEducTips, PageEducSectionDet, PageEducSection } from 'containers/PageEduc'
 import { PageHiltTips, PageHiltSection } from 'containers/PageHilt'
+import { PageSummTips, PageSummSection } from 'containers/PageSumm'
+import { PageFinalizeAddSection } from 'containers/PageFinalize'
 import Header from 'containers/Header'
 import Footer from 'containers/Footer'
 
@@ -44,7 +46,13 @@ const Routes = () => {
             <PageHiltSection />
           </Route>
           <Route path='/resume/tips/summ'>
-            <PageHiltTips />
+            <PageSummTips />
+          </Route>
+          <Route path='/resume/section/summ'>
+            <PageSummSection />
+          </Route>
+          <Route path='/resume/resume/add-section'>
+            <PageFinalizeAddSection />
           </Route>
           <Route exact path='/'>
             {() => {
