@@ -1,0 +1,24 @@
+.examples-wrapper {
+  border-left: 1px solid #ddd;
+  position: relative;
+
+  border-top: 0;
+  box-shadow: none;
+  border-right: none;
+  background-color: #f6f8fa;
+
+  .header-examples {
+    margin: 17px 18px 25px 18px;
+  }
+
+  .body-examples {
+    position: relative;
+    overflow: auto;
+
+    &.custom-scroll {
+      max-height: 355px;
+      min-height: 355px;
+      border-left: 0;
+    }
+  }
+}

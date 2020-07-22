@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom'
@@ -7,7 +7,15 @@ import TipContainer from 'containers/TipContainer'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { TipContentHilt } from 'containers/TipContainer/Contents'
-import { ZButton, ZButtonGroupFooter, ZArraySkills } from 'components/themes.js'
+import {
+  ZButton,
+  ZButtonGroupFooter,
+  ZArraySkills,
+  ZExamplesWrapper,
+  ZRelatedJobTitles,
+} from 'components/themes.js'
+import { Skills, JobTitlesArray } from 'utils/constants/index'
+import './Section.scss'
 
 /**
  * @page
@@ -23,7 +31,9 @@ import { ZButton, ZButtonGroupFooter, ZArraySkills } from 'components/themes.js'
 const schema = yup.object({})
 
 const PageHiltSection = () => {
+  const [search, setSearch] = useState('')
   const info = useSelector(state => state.resume.info)
+  const [currentJobTitleIndex, setCurrentJobTitleIndex] = useState(0)
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -47,6 +57,13 @@ const PageHiltSection = () => {
   }
   console.log(info)
 
+  const onSelectExample = value => {
+    console.log(value)
+  }
+
+  const currentJobTitle = JobTitlesArray.find(job => job.title === search)
+  const relatedJobTitles = currentJobTitle ? currentJobTitle.relatedJobTitles : []
+
   return (
     <Container className='section-hilt'>
       <Row className='page-title-wrap'>
@@ -69,9 +86,27 @@ const PageHiltSection = () => {
           </Form>
         </Col>
         <Col md={{ span: '6', order: 2 }} xs={{ span: 12, order: 1 }}>
-          Examples
+          <ZExamplesWrapper
+            search={search}
+            searchFor='Software Engineer'
+            searchPlaceholder='Ex: Cashier'
+            setSearch={setSearch}
+            searchList={JobTitlesArray}
+            examples={Skills}
+            onSelectExample={onSelectExample}
+            nRecommend={4}
+          />
         </Col>
       </Row>
+      <ZRelatedJobTitles
+        label='More job titles like Developer'
+        current={currentJobTitleIndex}
+        jobTitles={relatedJobTitles}
+        onSelect={index => {
+          // setSearch('')
+          setCurrentJobTitleIndex(index)
+        }}
+      />
       <ZButtonGroupFooter>
         <ZButton variant='default' onClick={onBack}>
           Back

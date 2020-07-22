@@ -11,6 +11,7 @@ import ZSortableList from './ZSortableList'
 import ZSelect from './ZSelect'
 import ZAutosuggest from './ZAutosuggest'
 import ZArraySkills from './ZArraySkills'
+import ZExamplesWrapper from './ZExamplesWrapper'
 
 export {
   ZInput,
@@ -26,4 +27,5 @@ export {
   ZSelect,
   ZAutosuggest,
   ZArraySkills,
+  ZExamplesWrapper,
 }

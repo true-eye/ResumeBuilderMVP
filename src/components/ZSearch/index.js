@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faSearchLocation } from '@fortawesome/free-solid-svg-icons'
 import Autosuggest from 'react-autosuggest'
 import ZTooltip from '../ZTooltip'
 import './index.scss'
@@ -71,7 +71,7 @@ const ZSearch = ({
         }}
       />
       <FontAwesomeIcon icon={faSearch} />
-      <ZTooltip className='search-tool-tip'>{tooltip}</ZTooltip>
+      {tooltip && <ZTooltip className='search-tool-tip'>{tooltip}</ZTooltip>}
     </div>
   )
 }

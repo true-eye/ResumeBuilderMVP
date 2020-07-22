@@ -1,7 +1,7 @@
 import React from 'react'
-import { ZSearch, ZLoaderNew, ZExamplesGroup } from 'components/themes.js'
 import PropTypes from 'prop-types'
 import { ContentState, EditorState, convertFromHTML, Modifier, Editor } from 'draft-js'
+import { ZExamplesWrapper } from 'components/themes.js'
 import './index.scss'
 
 /**
@@ -57,33 +57,16 @@ const EditorWrapper = ({
           nRecommend={nRecommend}
         />
       </section>
-
-      <section className='examples-wrapper'>
-        <header className='header-examples'>
-          {search !== undefined && (
-            <ZSearch
-              value={search}
-              maxLength={35}
-              label={
-                <>
-                  Showing results for <span className='keyword'>{searchFor}</span>
-                </>
-              }
-              id='positionSearchBox'
-              name='positionSearchBox'
-              placeholder={searchPlaceholder}
-              onChange={(e, { newValue }) => setSearch(newValue)}
-              tooltip={tooltip}
-              list={searchList}
-              field='title'
-            />
-          )}
-        </header>
-        <section className='body-examples custom-scroll'>
-          <ZExamplesGroup examples={examples} onSelect={onSelectExample} />
-          <ZLoaderNew loading={false} />
-        </section>
-      </section>
+      <ZExamplesWrapper
+        search={search}
+        searchFor={searchFor}
+        searchPlaceholder={searchPlaceholder}
+        setSearch={setSearch}
+        tooltip={tooltip}
+        searchList={searchList}
+        examples={examples}
+        onSelectExample={onSelectExample}
+      />
     </div>
   )
 }
