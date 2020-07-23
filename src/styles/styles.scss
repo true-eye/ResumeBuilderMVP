@@ -523,6 +523,63 @@ body {
 
 /* Custom Form Group Style END */
 
+/* Z-Array Form Style START */
+
+.text-editor-group {
+  .text-editor-inner {
+    .textbox-editor-container {
+      margin-top: 2rem;
+    }
+    .add-delete-row {
+      position: relative;
+
+      .z-form-group {
+        margin-bottom: 4px;
+        .z-input-invalid-icon,
+        .z-input-valid-icon {
+          top: 12px;
+        }
+      }
+
+      .delete {
+        position: absolute;
+        color: #7d97ad;
+        // padding: 5px;
+        z-index: 1;
+
+        font-size: 20px;
+        right: 25px;
+        top: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .add {
+    color: #3a96f0;
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  .add-another {
+    position: absolute;
+    bottom: -30px;
+    right: 5px;
+    z-index: 1;
+    font-size: 14px;
+
+    &.disabled {
+      color: #6c757d;
+      cursor: default;
+    }
+  }
+}
+
+/* Z-Array Form Style END */
+
 /* Custom Scroll Style START */
 .custom-scroll::-webkit-scrollbar,
 .autosuggest-suggestions-container::-webkit-scrollbar,

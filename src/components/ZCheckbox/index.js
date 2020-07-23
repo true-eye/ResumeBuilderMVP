@@ -11,16 +11,17 @@ import './index.scss'
  * @param {string}    name    (field name of formik form)
  * @param {object}    formik
  * @param {function}  onChange
+ * @param {string}    className
  *
  * @version 0.0.1
  */
 
-const ZCheckbox = ({ id, label, name, formik, onChange }) => {
+const ZCheckbox = ({ id, label, name, formik, onChange, className }) => {
   const isFilled = formik.values[name] && formik.values[name].length
   const isValid = !formik.errors[name]
   const isInvalid = formik.touched[name] && formik.errors[name]
 
-  const checkboxClass = classnames('z-checkbox')
+  const checkboxClass = classnames('z-checkbox', { checked: !!formik.values[name] }, className)
 
   return (
     <Form.Check
@@ -28,7 +29,7 @@ const ZCheckbox = ({ id, label, name, formik, onChange }) => {
       name={name}
       label={label}
       type='checkbox'
-      className='z-checkbox'
+      className={checkboxClass}
       value={formik.values[name]}
       checked={formik.values[name]}
       onChange={e => {
@@ -45,6 +46,7 @@ ZCheckbox.propTypes = {
   name: PropTypes.string,
   formik: PropTypes.object,
   onChange: PropTypes.func,
+  className: PropTypes.string,
 }
 
 export default ZCheckbox

@@ -6,17 +6,66 @@
   margin-top: -6px;
 
   input {
-    width: 17px;
-    height: 15px;
+    width: 19px;
+    height: 19px;
     margin-top: 0.6rem;
+    display: none;
   }
   label {
-    font-size: 14px;
+    display: inline-block;
     position: relative;
-    margin-bottom: 0;
-    padding-left: 15px;
+    padding-left: 10px;
+    font-size: 1.4rem;
+    line-height: 1.45;
+    vertical-align: text-bottom;
+    padding-top: 0;
     cursor: pointer;
-    line-height: 28px;
-    color: #808080;
+
+    &::before {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      left: 0;
+      top: 1px;
+      background-color: #fff;
+      border: 1px solid #d7dde2;
+      margin-left: -20px;
+    }
+    &:after {
+      content: '';
+      display: inline-block;
+      position: absolute;
+      color: #fff;
+      margin-left: -20px;
+      visibility: hidden;
+      -webkit-transform: none;
+      transform: none;
+      transition: none;
+
+      width: 17px;
+      height: 15px;
+      line-height: 16px;
+      text-align: center;
+      left: 1px;
+      top: 2px;
+      font-size: 12px;
+    }
+  }
+
+  &.checked {
+    label::after {
+      font-family: 'Font Awesome 5 Free', sans-serif;
+      content: '\f00c';
+      color: #48a4ff;
+      font-size: 1.1rem;
+      font-style: normal;
+      font-weight: 900;
+
+      visibility: visible;
+      -webkit-animation: pulse 0.1s ease;
+      animation: pulse 0.1s ease;
+    }
   }
 }

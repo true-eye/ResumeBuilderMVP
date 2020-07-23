@@ -43,12 +43,15 @@ const PageSummSection = () => {
   }
 
   const onNext = () => {
+    dispatch(saveStepAction('summ', markup))
     dispatch(completeStepAction('summ'))
-    history.push('/resume/resume/add-section')
+    history.push('/resume/add-section')
   }
 
   const currentJobTitle = JobTitlesArray.find(job => job.title === search)
   const relatedJobTitles = currentJobTitle ? currentJobTitle.relatedJobTitles : []
+
+  const updatedResume = { ...info, summ: markup }
 
   return (
     <Container className='section-summ'>
@@ -60,7 +63,7 @@ const PageSummSection = () => {
           </p>
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          <TipContainer info={info}>
+          <TipContainer info={updatedResume}>
             <TipContentSumm />
           </TipContainer>
         </Col>

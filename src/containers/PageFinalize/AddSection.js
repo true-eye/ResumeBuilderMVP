@@ -1,9 +1,13 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useFormik } from 'formik'
+import * as yup from 'yup'
+import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { Container, Row, Col } from 'react-bootstrap'
 import ResumeThumbnail from 'containers/ResumeThumbnail'
-import { ZButton, ZButtonGroupFooter } from 'components/themes.js'
+import { saveStepAction } from 'actions/resume'
+import { ZButton, ZButtonGroupFooter, ZCheckbox, ZInput } from 'components/themes.js'
+import { GetNextSection } from 'utils/constants'
 import './AddSection.scss'
 
 /**
@@ -16,13 +20,36 @@ import './AddSection.scss'
  * @version 0.0.1
  */
 
+const schema = yup.object({})
+
+const fields = [
+  { label: 'Accomplishments', name: 'accm' },
+  { label: 'Affiliations', name: 'afil' },
+  { label: 'Additional Information', name: 'addi' },
+  { label: 'Software', name: 'sftr' },
+  { label: 'Languages', name: 'lang' },
+  { label: 'Certifications', name: 'cert' },
+  { label: 'Interests', name: 'intr' },
+]
+
 const PageFinalizeAddSection = () => {
   const history = useHistory()
+  const dispatch = useDispatch()
   const info = useSelector(state => state.resume.info)
 
   const onNext = () => {
-    // history.push()
+    formik.handleSubmit()
   }
+
+  const formik = useFormik({
+    initialValues: info.more,
+    validationSchema: schema,
+    onSubmit: (values, actions) => {
+      const nextTag = GetNextSection(info.more, '')
+      dispatch(saveStepAction('more', values))
+      history.push(`/resume/section/${nextTag}`)
+    },
+  })
 
   return (
     <Container className='finalize-add-section'>
@@ -36,10 +63,39 @@ const PageFinalizeAddSection = () => {
         <Col md={7} lg={8}>
           <Row>
             <Col md={12} lg={6}>
-              checkboxes
+              {fields.map(field => (
+                <ZCheckbox
+                  className='row-section'
+                  formik={formik}
+                  id={field.name}
+                  name={field.name}
+                  label={field.label}
+                  key={field.name}
+                />
+              ))}
             </Col>
             <Col md={8} lg={6} className='custom-sec-wrap'>
-              custom section
+              <ZCheckbox
+                formik={formik}
+                id='bown'
+                name='bown'
+                label=''
+                onChange={value => {
+                  formik.setValues({
+                    ...formik.values,
+                    cust: value ? formik.values.cust : '',
+                    bown: value,
+                  })
+                }}
+              />
+              <ZInput
+                id='cust'
+                name='cust'
+                label='Add Your Own'
+                placeholder='E.g. Hobbies'
+                formik={formik}
+                className='custom-sec-textbox'
+              />
             </Col>
           </Row>
         </Col>

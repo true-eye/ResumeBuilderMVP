@@ -24,6 +24,27 @@ const initialState = {
     educ: [],
     hilt: [],
     summ: '',
+    more: {
+      accm: false,
+      afil: false,
+      addi: false,
+      sftr: false,
+      lang: false,
+      cert: false,
+      intr: false,
+      cust: '',
+      bown: false,
+    },
+    fnlz: {
+      accm: '',
+      afil: '',
+      addi: '',
+      sftr: [],
+      lang: [],
+      cert: [],
+      intr: [],
+      cust: '',
+    },
   },
 }
 
@@ -39,6 +60,16 @@ function resumeReducer(state = initialState, action) {
           info: {
             ...state.info,
             [action.field]: [...action.value],
+          },
+        }
+      }
+
+      if (action.field === 'summ') {
+        return {
+          ...state,
+          info: {
+            ...state.info,
+            [action.field]: action.value,
           },
         }
       }

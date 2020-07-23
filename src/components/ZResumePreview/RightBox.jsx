@@ -7,6 +7,7 @@ import SectionEduc from './SectionEduc'
 const RightBox = ({ info = {}, highlight }) => {
   const expr = info.expr
   const educ = info.educ
+  const summ = info.summ
 
   return (
     <div id='CONTAINER_1' className='right-box'>
@@ -15,7 +16,7 @@ const RightBox = ({ info = {}, highlight }) => {
         className='sortable-item section-container SortableItem-sibling  data-SUMM'
       >
         <div className='document-tool sec-tool' id='editIcons'></div>
-        <SectionSummary highlight={highlight === 'summ'} />
+        <SectionSummary summ={summ} highlight={highlight === 'summ'} />
       </div>
       <div
         data-react-beautiful-dnd-draggable='1'

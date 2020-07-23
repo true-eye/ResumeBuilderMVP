@@ -8,6 +8,29 @@
     font-weight: 300;
   }
 
+  .row-section {
+    margin-bottom: 18px;
+    font-family: HK Grotesk, sans-serif;
+  }
+
+  .custom-sec-wrap {
+    .z-checkbox {
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: -20px;
+    }
+    .custom-sec-textbox {
+      display: inline-block;
+      vertical-align: middle;
+      width: calc(100% - 38px);
+
+      .control-label {
+        margin-left: -32px;
+        font-size: 14px;
+      }
+    }
+  }
+
   &-resume-thumbnail {
     margin-top: 20px;
   }

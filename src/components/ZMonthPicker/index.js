@@ -5,6 +5,7 @@ import { faCaretLeft, faCaretRight } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt } from '@fortawesome/free-regular-svg-icons'
 import Calendar from 'react-calendar'
 import moment from 'moment'
+import _ from 'lodash'
 import ZInput from '../ZInput'
 import './index.scss'
 
@@ -15,6 +16,7 @@ import './index.scss'
  * @param {string}    name    (field name of formik form)
  * @param {object}    formik
  * @param {bool}      disabled
+ * @param {func}      onChange
  *
  * @todo
  * 1. Catch onBlur Event for Calendar
@@ -22,8 +24,10 @@ import './index.scss'
  * @version 0.0.1
  */
 
-const ZMonthPicker = ({ id, name, formik, label, disabled }) => {
+const ZMonthPicker = ({ id, name, formik, label, disabled, onChange }) => {
   const [showPicker, setShowPicker] = useState(false)
+
+  const value = _.get(formik.values, name)
 
   return (
     <>
@@ -39,17 +43,18 @@ const ZMonthPicker = ({ id, name, formik, label, disabled }) => {
         icon={<FontAwesomeIcon icon={faCalendarAlt} color='#9b9b9b' />}
         disabled={disabled}
         preventChange
-        formattedValue={formik.values[name] ? moment(formik.values[name]).format('MMM YYYY') : ''}
+        formattedValue={value ? moment(value).format('MMM YYYY') : ''}
       />
       {showPicker && !disabled ? (
         <Calendar
           className='z-calendar'
           name={name}
-          onClickMonth={(value, event) => {
-            formik.setValues({ ...formik.values, [name]: value })
+          onClickMonth={(month, event) => {
+            formik.setValues({ ...formik.values, [name]: month })
+            onChange && onChange(month)
             setShowPicker(false)
           }}
-          value={formik.values[name]}
+          value={value}
           defaultView='year'
           prevLabel={<FontAwesomeIcon icon={faCaretLeft} color='#5eaaf7' />}
           nextLabel={<FontAwesomeIcon icon={faCaretRight} color='#5eaaf7' />}
@@ -70,6 +75,7 @@ ZMonthPicker.propTypes = {
   name: PropTypes.string,
   formik: PropTypes.object,
   disabled: PropTypes.bool,
+  onChange: PropTypes.func,
 }
 
 export default ZMonthPicker

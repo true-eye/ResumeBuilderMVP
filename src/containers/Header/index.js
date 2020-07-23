@@ -1,7 +1,7 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { Container } from 'react-bootstrap'
-import { useHistory, useLocation, Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import classnames from 'classnames'
 import './index.scss'
 

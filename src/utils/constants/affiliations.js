@@ -1,0 +1,58 @@
+const Affiliations = {
+  'd1350048-c075-ea11-a94c-2818787bca0e': {
+    contentItemUID: 'd1350048-c075-ea11-a94c-2818787bca0e',
+    contentTypeCD: 'EXMP',
+    isCore: false,
+    tagText: '',
+    tagType: 'Default',
+    tags: [],
+    text: 'Association of Information Technology Professionals',
+  },
+  'd5350048-c075-ea11-a94c-2818787bca0e': {
+    contentItemUID: 'd5350048-c075-ea11-a94c-2818787bca0e',
+    contentTypeCD: 'EXMP',
+    isCore: false,
+    tagText: '',
+    tagType: 'Default',
+    tags: [],
+    text: 'American Society of Safety Professionals',
+  },
+  'ce350048-c075-ea11-a94c-2818787bca0e': {
+    contentItemUID: 'ce350048-c075-ea11-a94c-2818787bca0e',
+    contentTypeCD: 'EXMP',
+    isCore: false,
+    tagText: '',
+    tagType: 'Default',
+    tags: [],
+    text: 'Jaycees',
+  },
+  'd2350048-c075-ea11-a94c-2818787bca0e': {
+    contentItemUID: 'd2350048-c075-ea11-a94c-2818787bca0e',
+    contentTypeCD: 'EXMP',
+    isCore: false,
+    tagText: '',
+    tagType: 'Default',
+    tags: [],
+    text: 'American Marketing Association',
+  },
+  'ca350048-c075-ea11-a94c-2818787bca0e': {
+    contentItemUID: 'ca350048-c075-ea11-a94c-2818787bca0e',
+    contentTypeCD: 'EXMP',
+    isCore: false,
+    tagText: '',
+    tagType: 'Default',
+    tags: [],
+    text: 'Lions Club',
+  },
+  'd4350048-c075-ea11-a94c-2818787bca0e': {
+    contentItemUID: 'd4350048-c075-ea11-a94c-2818787bca0e',
+    contentTypeCD: 'EXMP',
+    isCore: false,
+    tagText: '',
+    tagType: 'Default',
+    tags: [],
+    text: 'Association for Computing Machinery',
+  },
+}
+
+export default Affiliations

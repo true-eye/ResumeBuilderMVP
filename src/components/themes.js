@@ -12,6 +12,8 @@ import ZSelect from './ZSelect'
 import ZAutosuggest from './ZAutosuggest'
 import ZArraySkills from './ZArraySkills'
 import ZExamplesWrapper from './ZExamplesWrapper'
+import ZArrayCertifications from './ZArrayCertifications'
+import ZArrayInterests from './ZArrayInterests'
 
 export {
   ZInput,
@@ -28,4 +30,6 @@ export {
   ZAutosuggest,
   ZArraySkills,
   ZExamplesWrapper,
+  ZArrayCertifications,
+  ZArrayInterests,
 }

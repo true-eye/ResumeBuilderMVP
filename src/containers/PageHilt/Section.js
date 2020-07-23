@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom'
-import { completeStepAction, saveStepAction } from 'actions/resume'
+import { completeStepAction } from 'actions/resume'
 import TipContainer from 'containers/TipContainer'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -94,12 +94,12 @@ const PageHiltSection = () => {
         </Col>
       </Row>
       <Row>
-        <Col md={{ span: '6', order: 1 }} xs={{ span: 12, order: 2 }}>
+        <Col md={{ span: 6, order: 1 }} xs={{ span: 12, order: 2 }}>
           <Form noValidate>
-            <ZArraySkills formik={formik} field='skills' />
+            <ZArraySkills formik={formik} field='skills' label='skills' />
           </Form>
         </Col>
-        <Col md={{ span: '6', order: 2 }} xs={{ span: 12, order: 1 }}>
+        <Col md={{ span: 6, order: 2 }} xs={{ span: 12, order: 1 }}>
           <ZExamplesWrapper
             search={search}
             searchFor='Software Engineer'

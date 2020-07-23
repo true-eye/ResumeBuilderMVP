@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import classnames from 'classnames'
 import { ContentState, EditorState, convertFromHTML, Modifier, Editor } from 'draft-js'
 import { ZExamplesWrapper } from 'components/themes.js'
 import './index.scss'
@@ -23,6 +24,8 @@ const EditorWrapper = ({
   tooltip,
   searchPlaceholder,
   editorPlaceholder,
+  editorOnly = false,
+  className,
 }) => {
   const currentContent = editorState.getCurrentContent()
 
@@ -47,7 +50,7 @@ const EditorWrapper = ({
   }
 
   return (
-    <div className='editor-wrapper'>
+    <div className={classnames('editor-wrapper', className)}>
       <section className='editor-section ' id='draftJsEditor'>
         <Editor
           editorState={editorState}
@@ -56,17 +59,19 @@ const EditorWrapper = ({
           spellCheck
         />
       </section>
-      <ZExamplesWrapper
-        search={search}
-        searchFor={searchFor}
-        searchPlaceholder={searchPlaceholder}
-        setSearch={setSearch}
-        tooltip={tooltip}
-        searchList={searchList}
-        examples={examples}
-        onSelectExample={onSelectExample}
-        nRecommend={nRecommend}
-      />
+      {!editorOnly && (
+        <ZExamplesWrapper
+          search={search}
+          searchFor={searchFor}
+          searchPlaceholder={searchPlaceholder}
+          setSearch={setSearch}
+          tooltip={tooltip}
+          searchList={searchList}
+          examples={examples}
+          onSelectExample={onSelectExample}
+          nRecommend={nRecommend}
+        />
+      )}
     </div>
   )
 }
@@ -83,6 +88,8 @@ EditorWrapper.propTypes = {
   searchPlaceholder: PropTypes.string,
   editorPlaceholder: PropTypes.string,
   searchList: PropTypes.array,
+  editorOnly: PropTypes.bool,
+  className: PropTypes.string,
 }
 
 export default EditorWrapper
