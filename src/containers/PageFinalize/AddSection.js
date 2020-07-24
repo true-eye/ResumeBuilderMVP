@@ -45,8 +45,8 @@ const PageFinalizeAddSection = () => {
     initialValues: info.more,
     validationSchema: schema,
     onSubmit: (values, actions) => {
-      const nextTag = GetNextSection(info.more, '')
       dispatch(saveStepAction('more', values))
+      const nextTag = GetNextSection(values, '')
       history.push(`/resume/section/${nextTag}`)
     },
   })
