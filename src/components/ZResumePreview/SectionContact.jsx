@@ -91,11 +91,7 @@ const SectionContact = ({ CITY = '', STAT = '', ZIPC = '', HPHN = '', EMAI = '' 
   }
 
   return (
-    <div
-      id='SECTION_CNTC880a4888-e67b-49e8-97c4-2c4a7df1e3aa'
-      className='section SECTION_CNTC notdraggable   '
-      data-section-cd='CNTC'
-    >
+    <div className='section SECTION_CNTC notdraggable   ' data-section-cd='CNTC'>
       <div className=' doc-item'>
         <div className='heading'>
           <div className='sectiontitle' id='SECTIONNAME_CNTC'>
@@ -104,10 +100,7 @@ const SectionContact = ({ CITY = '', STAT = '', ZIPC = '', HPHN = '', EMAI = '' 
         </div>
         <div className=''>
           <div className=''>
-            <div
-              id='PARAGRAPH_CNTC_143c3bc2-2ded-47c3-8a86-02175387aaa4'
-              className='paragraph PARAGRAPH_CNTC firstparagraph  '
-            >
+            <div className='paragraph PARAGRAPH_CNTC firstparagraph  '>
               <div className='clearfix doc-item'>
                 <div className='address'>
                   <div className='singlecolumn'>

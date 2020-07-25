@@ -98,11 +98,9 @@ const EducItem = ({ item }) => {
 const SectionEduc = ({ highlight, educ = [] }) => {
   return (
     <div
-      id='SECTION_EDUC9865a64b-ff0f-4eab-941d-1918ff23910b'
       className={classnames('section', 'education', 'SECTION_EDUC', 'noparagraph', 'multi-para', {
         'preview-template-highlighter': highlight,
       })}
-      data-section-cd='EDUC'
     >
       <div className=' doc-item'>
         <div className='heading'>

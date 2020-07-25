@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFormik } from 'formik'
 import * as yup from 'yup'
 import { useHistory } from 'react-router-dom'
-import { completeStepAction } from 'actions/resume'
+import { completeStepAction, saveStepAction } from 'actions/resume'
 import TipContainer from 'containers/TipContainer'
 import { Container, Row, Col, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
@@ -53,6 +53,7 @@ const PageHiltSection = () => {
     onSubmit: (values, actions) => {
       console.log('onSubmit', values)
 
+      dispatch(saveStepAction('hilt', values.skills))
       dispatch(completeStepAction('hilt'))
       history.push('/resume/tips/summ')
     },
@@ -78,6 +79,8 @@ const PageHiltSection = () => {
   const currentJobTitle = JobTitlesArray.find(job => job.title === search)
   const relatedJobTitles = currentJobTitle ? currentJobTitle.relatedJobTitles : []
 
+  const updatedResume = { ...info, hilt: formik.values.skills }
+
   return (
     <Container className='section-hilt'>
       <Row className='page-title-wrap'>
@@ -88,7 +91,7 @@ const PageHiltSection = () => {
           </p>
         </Col>
         <Col xs={3} className='col-preview-tips'>
-          <TipContainer info={info}>
+          <TipContainer info={updatedResume}>
             <TipContentHilt />
           </TipContainer>
         </Col>
