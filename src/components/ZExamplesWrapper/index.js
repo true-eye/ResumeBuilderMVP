@@ -15,11 +15,13 @@ const ZExamplesWrapper = ({
   searchFor,
   searchPlaceholder,
   setSearch,
+  setSelect,
   tooltip,
   searchList,
   examples,
   onSelectExample,
   nRecommend,
+  loading,
 }) => {
   return (
     <section className='examples-wrapper'>
@@ -37,6 +39,7 @@ const ZExamplesWrapper = ({
             name='positionSearchBox'
             placeholder={searchPlaceholder}
             onChange={(e, { newValue }) => setSearch(newValue)}
+            onSelect={newValue => setSelect(newValue)}
             tooltip={tooltip}
             list={searchList}
             field='title'
@@ -45,7 +48,7 @@ const ZExamplesWrapper = ({
       </header>
       <section className='body-examples custom-scroll'>
         <ZExamplesGroup examples={examples} onSelect={onSelectExample} nRecommend={nRecommend} />
-        <ZLoaderNew loading={false} />
+        <ZLoaderNew loading={loading} />
       </section>
     </section>
   )
@@ -54,6 +57,7 @@ const ZExamplesWrapper = ({
 ZExamplesWrapper.propTypes = {
   search: PropTypes.string,
   setSearch: PropTypes.func,
+  setSelect: PropTypes.func,
   examples: PropTypes.object,
   nRecommend: PropTypes.number,
   searchFor: PropTypes.string,
@@ -61,6 +65,7 @@ ZExamplesWrapper.propTypes = {
   searchPlaceholder: PropTypes.string,
   searchList: PropTypes.array,
   onSelectExample: PropTypes.func,
+  loading: PropTypes.bool,
 }
 
 export default ZExamplesWrapper

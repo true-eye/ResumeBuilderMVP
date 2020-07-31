@@ -40,6 +40,7 @@ const ZSearch = ({
   maxLength,
   value,
   onChange,
+  onSelect,
   tooltip,
   list = [],
   field = 'title',
@@ -60,10 +61,18 @@ const ZSearch = ({
         }
         onSuggestionsClearRequested={() => setSuggestions([])}
         getSuggestionValue={suggestion => suggestion[field]}
+        onSuggestionSelected={(event, { suggestion }) => {
+          onSelect(suggestion[field])
+        }}
         renderSuggestion={suggestion => <span>{suggestion[field]}</span>}
         inputProps={{
           name,
           value,
+          onKeyDown: (e, f) => {
+            if (e.keyCode === 13) {
+              onSelect(e.target.value)
+            }
+          },
           onChange,
           maxLength,
           placeholder,
@@ -85,6 +94,7 @@ ZSearch.propTypes = {
   maxLength: PropTypes.number,
   value: PropTypes.string,
   onChange: PropTypes.func,
+  onSelect: PropTypes.func,
   tooltip: PropTypes.string,
   list: PropTypes.array,
   field: PropTypes.string,

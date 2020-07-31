@@ -15,6 +15,7 @@ import './index.scss'
 const EditorWrapper = ({
   search,
   setSearch,
+  setSelect,
   searchList,
   editorState,
   setEditorState,
@@ -26,6 +27,7 @@ const EditorWrapper = ({
   editorPlaceholder,
   editorOnly = false,
   className,
+  loading = false,
 }) => {
   const currentContent = editorState.getCurrentContent()
 
@@ -65,11 +67,13 @@ const EditorWrapper = ({
           searchFor={searchFor}
           searchPlaceholder={searchPlaceholder}
           setSearch={setSearch}
+          setSelect={setSelect}
           tooltip={tooltip}
           searchList={searchList}
           examples={examples}
           onSelectExample={onSelectExample}
           nRecommend={nRecommend}
+          loading={loading}
         />
       )}
     </div>
@@ -79,6 +83,7 @@ const EditorWrapper = ({
 EditorWrapper.propTypes = {
   search: PropTypes.string,
   setSearch: PropTypes.func,
+  setSelect: PropTypes.func,
   editorState: PropTypes.object,
   setEditorState: PropTypes.func,
   examples: PropTypes.object,
@@ -90,6 +95,7 @@ EditorWrapper.propTypes = {
   searchList: PropTypes.array,
   editorOnly: PropTypes.bool,
   className: PropTypes.string,
+  loading: PropTypes.bool,
 }
 
 export default EditorWrapper
