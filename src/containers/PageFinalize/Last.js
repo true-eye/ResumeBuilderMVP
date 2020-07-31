@@ -67,7 +67,7 @@ const PageFinalResume = () => {
       standard: true,
       name: 'Education',
       icon: faGraduationCap,
-      link: '/resume/section/educ-det',
+      link: '/resume/section/educ',
     },
     {
       id: 'accm',
