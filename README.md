@@ -1,4 +1,4 @@
-# React + Redux + Saga + Bootstrap + Scss
+# Resume Builder MVP
 
 `yarn install`
 
